@@ -1,0 +1,25 @@
+.App-header {
+    background-color: #111;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .icon {
+     display: none; 
+    float: left;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: block;
+  }
+
+  .App-header span{
+    line-height: 50px;
+  }

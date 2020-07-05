@@ -1,0 +1,10 @@
+
+.main {
+    padding: 11vh 1vw 1vh 1vw;
+  }
+
+  @media screen and (max-width: 700px) {
+    div.main {
+        padding: 14vh 1vw 1vh 1vw;
+    }
+  }
