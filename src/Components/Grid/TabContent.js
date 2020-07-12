@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './TabContent.css'
 import TabHeading from './TabHeading';
-
+import PropTypes from 'prop-types'
 class TabContent extends Component {
     render() {
         const hasChildren = this.props.item.children && this.props.item.children.length > 0;
@@ -33,5 +33,8 @@ class TabContent extends Component {
         );
     }
 }
-
+TabContent.propTypes = {
+    item: PropTypes.any.isRequired,
+    onShowModel: PropTypes.func.isRequired
+};
 export default TabContent;

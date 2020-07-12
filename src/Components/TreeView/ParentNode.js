@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Treenode from './Treenode';
-
+import PropTypes from 'prop-types'
 export default class ParentNode extends Component {
     constructor(props) {
         super(props)
@@ -32,4 +32,8 @@ export default class ParentNode extends Component {
         )
     }
 }
+ParentNode.propTypes = {
+    onTreeNodeClick: PropTypes.func.isRequired,
+    item: PropTypes.any.isRequired
+};
 

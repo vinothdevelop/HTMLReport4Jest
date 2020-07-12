@@ -4,7 +4,7 @@ import React, { Component, Fragment } from 'react';
 import './Treenode.css';
 import LeafNode from './LeafNode';
 import ParentNode from './ParentNode';
-
+import PropTypes from 'prop-types'
 export default class Treenode extends Component {
 
     render() {
@@ -23,4 +23,8 @@ export default class Treenode extends Component {
         )
     }
 }
+Treenode.propTypes = {
+    onTreeNodeClick: PropTypes.func.isRequired,
+    treeViewData: PropTypes.any.isRequired
+};
 

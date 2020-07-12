@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import PropTypes from 'prop-types'
 import './Summary.css';
 import SummaryElement from './SummaryElement';
 
@@ -17,4 +17,6 @@ export default class Summary extends Component {
         )
     }
 }
-
+Summary.propTypes = {
+    resultSummary: PropTypes.any.isRequired
+};

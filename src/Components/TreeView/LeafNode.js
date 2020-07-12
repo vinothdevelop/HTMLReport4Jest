@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types'
 export default class LeafNode extends Component {
 
     render() {
@@ -8,3 +8,6 @@ export default class LeafNode extends Component {
         )
     }
 }
+LeafNode.propTypes = {
+    item: PropTypes.any.isRequired
+};

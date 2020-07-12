@@ -4,7 +4,7 @@ import Summary from '../Summary/Summary';
 import GridHeader from '../Grid/GridHeader';
 import GridTabView from '../Grid/GridTabView';
 import Modal from './../Modal/Modal';
-
+import PropTypes from 'prop-types'
 class Main extends Component {
     constructor(props) {
         super(props)
@@ -60,5 +60,7 @@ class Main extends Component {
         );
     }
 }
-
+Main.propTypes = {
+    testResults: PropTypes.any.isRequired
+};
 export default Main;

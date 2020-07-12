@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
-
 import './Treeview.css';
 import ParentNode from './ParentNode';
+import PropTypes from 'prop-types'
 export default class Treeview extends Component {
     render() {
         return (
@@ -12,4 +11,8 @@ export default class Treeview extends Component {
         )
     }
 }
+Treeview.propTypes = {
+    onTreeNodeClick: PropTypes.func.isRequired,
+    treeViewData: PropTypes.any.isRequired
+};
 
