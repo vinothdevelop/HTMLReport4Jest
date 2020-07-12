@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TabHeading.css'
 import TabContent from './TabContent';
-
+import PropTypes from 'prop-types'
 class TabHeading extends Component {
     constructor(props) {
         super(props)
@@ -41,5 +41,8 @@ class TabHeading extends Component {
         );
     }
 }
-
+TabHeading.propTypes = {
+    item: PropTypes.any.isRequired,
+    onShowModel: PropTypes.func.isRequired
+};
 export default TabHeading;

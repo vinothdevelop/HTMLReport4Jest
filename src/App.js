@@ -130,7 +130,6 @@ class App extends Component {
   }
 
   onTreeNodeClick(item) {
-    console.log(item);
     this.setState({ gridData: item });
   }
 

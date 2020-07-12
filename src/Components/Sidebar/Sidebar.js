@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import PropTypes from 'prop-types'
 import './Sidebar.css';
 import Treeview from '../TreeView/Treeview';
 
@@ -26,4 +26,10 @@ export default class Sidebar extends Component {
         )
     }
 }
+Sidebar.propTypes = {
+    onTreeNodeClick: PropTypes.func.isRequired,
+    treeViewData: PropTypes.any.isRequired,
+    menuState: PropTypes.string.isRequired,
+    menuStateChange: PropTypes.func.isRequired
+};
 
