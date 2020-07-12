@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import data from './data/nested.json';
 
 import './Components/Header/Header'
 import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Main from './Components/Main/Main';
+let data;
 class App extends Component {
   constructor(props) {
+    data = window.resultData;
     super(props)
     this.state = {
       menuState: 'close',
