@@ -1,0 +1,165 @@
+{
+    "numFailedTestSuites": 1,
+    "numFailedTests": 1,
+    "numPassedTestSuites": 1,
+    "numPassedTests": 1,
+    "numPendingTestSuites": 0,
+    "numPendingTests": 0,
+    "numRuntimeErrorTestSuites": 0,
+    "numTodoTests": 0,
+    "numTotalTestSuites": 2,
+    "numTotalTests": 2,
+    "openHandles": [],
+    "snapshot": {
+        "added": 0,
+        "didUpdate": false,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0
+    },
+    "startTime": 1595144291671,
+    "success": false,
+    "testResults": [
+        {
+            "leaks": false,
+            "numFailingTests": 0,
+            "numPassingTests": 1,
+            "numPendingTests": 0,
+            "numTodoTests": 0,
+            "openHandles": [],
+            "perfStats": {
+                "end": 1595144295489,
+                "start": 1595144293187
+            },
+            "skipped": false,
+            "snapshot": {
+                "added": 0,
+                "fileDeleted": false,
+                "matched": 0,
+                "unchecked": 0,
+                "unmatched": 0,
+                "updated": 0,
+                "uncheckedKeys": []
+            },
+            "testFilePath": "/home/my/Desktop/ReactDemo/JestReport/app/src/Components/Modal/Modal.test.js",
+            "testResults": [
+                {
+                    "ancestorTitles": [],
+                    "duration": 28,
+                    "failureMessages": [],
+                    "fullName": "Link changes the class when hovered",
+                    "location": null,
+                    "numPassingAsserts": 0,
+                    "status": "passed",
+                    "title": "Link changes the class when hovered"
+                }
+            ],
+            "failureMessage": null
+        },
+        {
+            "leaks": false,
+            "numFailingTests": 1,
+            "numPassingTests": 0,
+            "numPendingTests": 0,
+            "numTodoTests": 0,
+            "openHandles": [],
+            "perfStats": {
+                "end": 1595144296361,
+                "start": 1595144293218
+            },
+            "skipped": false,
+            "snapshot": {
+                "added": 0,
+                "fileDeleted": false,
+                "matched": 0,
+                "unchecked": 0,
+                "unmatched": 0,
+                "updated": 0,
+                "uncheckedKeys": []
+            },
+            "testFilePath": "/home/my/Desktop/ReactDemo/JestReport/app/src/App.test.js",
+            "testResults": [
+                {
+                    "ancestorTitles": [],
+                    "duration": 105,
+                    "failureMessages": [
+                        "TypeError: Cannot read property 'map' of undefined\n    at GridTabView.render (/home/my/Desktop/ReactDemo/JestReport/app/src/Components/Grid/GridTabView.js:10:44)\n    at finishClassComponent (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:17160:31)\n    at updateClassComponent (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:17110:24)\n    at beginWork (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:18620:16)\n    at HTMLUnknownElement.callCallback (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:188:14)\n    at HTMLUnknownElement.callTheUserObjectsOperation (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)\n    at innerInvokeEventListeners (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:318:25)\n    at invokeEventListeners (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)\n    at HTMLUnknownElementImpl._dispatch (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)\n    at HTMLUnknownElementImpl.dispatchEvent (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)\n    at HTMLUnknownElement.dispatchEvent (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)\n    at Object.invokeGuardedCallbackDev (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:237:16)\n    at invokeGuardedCallback (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:292:31)\n    at beginWork$1 (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:23203:7)\n    at performUnitOfWork (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:22157:12)\n    at workLoopSync (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:22130:22)\n    at performSyncWorkOnRoot (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:21756:9)\n    at scheduleUpdateOnFiber (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:21188:7)\n    at updateContainer (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:24373:3)\n    at /home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:24758:7\n    at unbatchedUpdates (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:21903:12)\n    at legacyRenderSubtreeIntoContainer (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:24757:5)\n    at Object.render (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:24840:10)\n    at /home/my/Desktop/ReactDemo/JestReport/app/node_modules/@testing-library/react/dist/pure.js:100:25\n    at batchedUpdates$1 (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom.development.js:21856:12)\n    at act (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/react-dom/cjs/react-dom-test-utils.development.js:929:14)\n    at render (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/@testing-library/react/dist/pure.js:96:26)\n    at Object.<anonymous> (/home/my/Desktop/ReactDemo/JestReport/app/src/App.test.js:6:25)\n    at Object.asyncJestTest (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /home/my/Desktop/ReactDemo/JestReport/app/node_modules/jest-jasmine2/build/queueRunner.js:47:12\n    at new Promise (<anonymous>)\n    at mapper (/home/my/Desktop/ReactDemo/JestReport/app/node_modules/jest-jasmine2/build/queueRunner.js:30:19)\n    at /home/my/Desktop/ReactDemo/JestReport/app/node_modules/jest-jasmine2/build/queueRunner.js:77:41\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                    ],
+                    "fullName": "renders learn react link",
+                    "location": null,
+                    "numPassingAsserts": 0,
+                    "status": "failed",
+                    "title": "renders learn react link"
+                }
+            ],
+            "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mrenders learn react link\u001b[39m\u001b[22m\n\n    TypeError: Cannot read property 'map' of undefined\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  8 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mFragment\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 | \u001b[39m                {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 10 | \u001b[39m                    \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mtestResults\u001b[33m.\u001b[39mmap((item) \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    | \u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 11 | \u001b[39m                        \u001b[36mreturn\u001b[39m \u001b[33m<\u001b[39m\u001b[33mTabContent\u001b[39m item\u001b[33m=\u001b[39m{item} key\u001b[33m=\u001b[39m{item\u001b[33m.\u001b[39mid} onShowModel\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39monShowModel} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 12 | \u001b[39m                    })\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 13 | \u001b[39m                }\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat GridTabView.render (\u001b[22m\u001b[2msrc/Components/Grid/GridTabView.js\u001b[2m:10:44)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat finishClassComponent (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:17160:31)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat updateClassComponent (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:17110:24)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat beginWork (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:18620:16)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat HTMLUnknownElement.callCallback (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:188:14)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat HTMLUnknownElement.callTheUserObjectsOperation (\u001b[22m\u001b[2mnode_modules/jsdom/lib/jsdom/living/generated/EventListener.js\u001b[2m:26:30)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat innerInvokeEventListeners (\u001b[22m\u001b[2mnode_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js\u001b[2m:318:25)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat invokeEventListeners (\u001b[22m\u001b[2mnode_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js\u001b[2m:274:3)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat HTMLUnknownElementImpl._dispatch (\u001b[22m\u001b[2mnode_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js\u001b[2m:221:9)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat HTMLUnknownElementImpl.dispatchEvent (\u001b[22m\u001b[2mnode_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js\u001b[2m:94:17)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat HTMLUnknownElement.dispatchEvent (\u001b[22m\u001b[2mnode_modules/jsdom/lib/jsdom/living/generated/EventTarget.js\u001b[2m:231:34)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.invokeGuardedCallbackDev (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:237:16)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat invokeGuardedCallback (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:292:31)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat beginWork$1 (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:23203:7)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat performUnitOfWork (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:22157:12)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat workLoopSync (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:22130:22)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat performSyncWorkOnRoot (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:21756:9)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat scheduleUpdateOnFiber (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:21188:7)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat updateContainer (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:24373:3)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat \u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:24758:7\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat unbatchedUpdates (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:21903:12)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat legacyRenderSubtreeIntoContainer (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:24757:5)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.render (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:24840:10)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat \u001b[22m\u001b[2mnode_modules/@testing-library/react/dist/pure.js\u001b[2m:100:25\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat batchedUpdates$1 (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom.development.js\u001b[2m:21856:12)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat act (\u001b[22m\u001b[2mnode_modules/react-dom/cjs/react-dom-test-utils.development.js\u001b[2m:929:14)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat render (\u001b[22m\u001b[2mnode_modules/@testing-library/react/dist/pure.js\u001b[2m:96:26)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/App.test.js\u001b[39m\u001b[0m\u001b[2m:6:25)\u001b[22m\u001b[2m\u001b[22m\n"
+        }
+    ],
+    "wasInterrupted": false,
+    "config": {
+        "bail": 0,
+        "changedFilesWithAncestor": false,
+        "collectCoverage": false,
+        "collectCoverageFrom": [],
+        "coverageDirectory": "/home/my/Desktop/ReactDemo/JestReport/app/coverage",
+        "coverageProvider": "babel",
+        "coverageReporters": [
+            "json",
+            "text",
+            "lcov",
+            "clover"
+        ],
+        "detectLeaks": false,
+        "detectOpenHandles": false,
+        "errorOnDeprecated": false,
+        "expand": false,
+        "findRelatedTests": false,
+        "forceExit": false,
+        "json": false,
+        "lastCommit": false,
+        "listTests": false,
+        "logHeapUsage": false,
+        "maxConcurrency": 5,
+        "maxWorkers": 3,
+        "noStackTrace": false,
+        "nonFlagArgs": [],
+        "notify": false,
+        "notifyMode": "failure-change",
+        "onlyChanged": false,
+        "onlyFailures": false,
+        "passWithNoTests": false,
+        "projects": [],
+        "reporters": [
+            [
+                "default",
+                {}
+            ],
+            [
+                "/home/my/my/ReactDemo/JestReport/app/index.js",
+                {}
+            ]
+        ],
+        "rootDir": "/home/my/Desktop/ReactDemo/JestReport/app",
+        "runTestsByPath": false,
+        "skipFilter": false,
+        "testFailureExitCode": 1,
+        "testPathPattern": "",
+        "testSequencer": "/home/my/Desktop/ReactDemo/JestReport/app/node_modules/@jest/test-sequencer/build/index.js",
+        "updateSnapshot": "new",
+        "useStderr": false,
+        "watch": false,
+        "watchAll": false,
+        "watchman": true
+    },
+    "endTime": 1595144296518,
+    "_reporterOptions": {}
+}

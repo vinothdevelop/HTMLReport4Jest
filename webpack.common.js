@@ -1,13 +1,8 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const publicUrl = './public';
 module.exports = {
-    output: {
-        publicPath: publicUrl + '/',
-    },
     module: {
         rules: [
             {
@@ -41,7 +36,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
             template: path.resolve('public/index.html'),
             filename: "./index.html",
@@ -49,12 +43,6 @@ module.exports = {
         }),
         new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
             PUBLIC_URL: publicUrl,
-        }),
-        new InlineChunkHtmlPlugin(HtmlWebPackPlugin, [/.*/]),
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 9000
-    }
+        })
+    ]
 };
