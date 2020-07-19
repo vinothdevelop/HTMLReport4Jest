@@ -14,20 +14,19 @@ class HTMLReport4Jest {
     }
 
     onRunComplete(contexts, results) {
-        results.config = this._globalConfig
         results.endTime = Date.now()
-        results._reporterOptions = { ...this._options }
+        results.reporterOptions = { ...this._options }
         const data = JSON.stringify(results);
         const templatePath = path.resolve(__dirname, './dist/index.html');
         const htmlTemplate = fs.readFileSync(templatePath, 'utf-8')
-        const title = 'Jest Html Report'
-        const outPutContext = htmlTemplate
+        results.reporterOptions.title = results.reporterOptions.title ?? 'Jest Html Report'
+        const outputContext = htmlTemplate
             .replace('%RESULTDATA%', data)
-            .replace('%TITLE%', title)
-        const publicPath = './temp/'
-        const filename = 'result.html'
+            .replace('%TITLE%', results.reporterOptions.title)
+        const publicPath = results.reporterOptions.reportPath ?? './temp/'
+        const filename = results.reporterOptions.reportFileName ?? 'result.html'
         fs.existsSync(publicPath) === false && publicPath && mkdirs(publicPath)
-        fs.writeFileSync(publicPath.concat(filename), outPutContext, 'utf-8')
+        fs.writeFileSync(publicPath.concat(filename), outputContext, 'utf-8')
     }
 }
 

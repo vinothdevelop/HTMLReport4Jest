@@ -136,7 +136,7 @@ class App extends Component {
 
   render() {
     return (<div className="App" >
-      <Header menuStateChange={() => this.menuStateChange('open')} />
+      <Header heading={this.state.testResults?.reporterOptions?.title} menuStateChange={() => this.menuStateChange('open')} />
       <Sidebar
         treeViewData={this.state.treeViewData}
         menuState={this.state.menuState}
