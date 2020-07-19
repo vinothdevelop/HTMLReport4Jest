@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<div
+  class="App-header"
+>
+  <a
+    class="icon"
+  >
+    ☰
+  </a>
+  <span>
+    Test Heading
+  </span>
+</div>
+`;
