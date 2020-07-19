@@ -1,7 +1,26 @@
 {
   "name": "htmlreport4jest",
   "version": "0.1.0",
-  "private": true,
+  "description": "Html report for jest",
+  "keywords": [
+    "jest",
+    "jest report",
+    "jest html report",
+    "test report",
+    "jest report",
+    "html report",
+    "jest reporter",
+    "jest html reporter",
+    "test reporter",
+    "jest reporter",
+    "html reporter"
+  ],
+  "author": "Vinoth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/contactvinoth89/HTMLReport4Jest/issues"
+  },
+  "homepage": "https://github.com/contactvinoth89/HTMLReport4Jest#readme",
   "dependencies": {
     "fs": "^0.0.1-security"
   },
@@ -13,6 +32,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "files": [
+    "index.js",
+    "readme.md",
+    "dist/index.html"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
