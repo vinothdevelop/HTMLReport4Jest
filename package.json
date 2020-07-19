@@ -1,6 +1,6 @@
 {
   "name": "htmlreport4jest",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Html report for jest",
   "keywords": [
     "jest",
@@ -27,7 +27,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.development.config.js --open",
     "build": "webpack --config webpack.build.config.js --mode production",
-    "test": "yarn build && jest"
+    "test": "yarn build && jest --silent"
   },
   "eslintConfig": {
     "extends": "react-app"
