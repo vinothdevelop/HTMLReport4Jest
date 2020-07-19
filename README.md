@@ -38,7 +38,8 @@ The options below are specific to the reporter.
 | :------------ | :------ | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `title`  | string  | 'Jest Html Report'                       | Title of the generated html report                                                                                                                                                                                                                                                                                |
 | `reportPath`    | string  | './temp/' | Generated html file will be stored under the given path                                                                                                                                                                                                                                |
-| `reportFileName`      | string | 'result.html'                    | Name of the html report to be generated                                                                                             
+| `reportFileName`      | string | 'result.html'                    | Name of the html report to be generated     |
+| `hideMenu`      | boolen | false                    | Hides filter menu                                                         
 
 #### example add config options
 
@@ -49,7 +50,8 @@ The options below are specific to the reporter.
   ["htmlreport4jest", {
     "title": 'Jest Html Report',
     "reportPath": './temp/',
-    "reportFileName": 'result.html'
+    "reportFileName": 'result.html',
+    "hideMenu": true
   }]
 ]
 ```
