@@ -58,7 +58,7 @@ class App extends Component {
           [nodeValue.children, id] = this.parseTreeData(element.testResults, [], id);
           parentArray.push(nodeValue);
         }
-        else if (element.ancestorTitles && element.ancestorTitles.length > 0) {
+        else if (element.ancestorTitles) {
           [subArray, id] = this.parseAncestor(element.ancestorTitles, element, subArray, id);
         }
       }

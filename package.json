@@ -3,14 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "fs": "^0.0.1-security"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production",
-    "test": "jest"
+    "start": "webpack-dev-server --config webpack.development.config.js --open",
+    "build": "webpack --config webpack.build.config.js --mode production",
+    "test": "yarn build && jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,7 +43,9 @@
     "html-webpack-plugin": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
+    "react": "^16.13.1",
     "react-dev-utils": "^10.2.1",
+    "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",

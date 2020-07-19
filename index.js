@@ -22,8 +22,8 @@ class HTMLReport4Jest {
         const htmlTemplate = fs.readFileSync(templatePath, 'utf-8')
         const title = 'Jest Html Report'
         const outPutContext = htmlTemplate
-            .replace('$resultData', data)
-            .replace('$title', title)
+            .replace('%RESULTDATA%', data)
+            .replace('%TITLE%', title)
         const publicPath = './temp/'
         const filename = 'result.html'
         fs.existsSync(publicPath) === false && publicPath && mkdirs(publicPath)
