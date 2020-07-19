@@ -1,38 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Jest Html reporter
 
-## Available Scripts
+Jest reporter to generate hierarchical html report
 
-In the project directory, you can run:
+### Installation
 
-### `yarn start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```shell
+  npm install htmlreport4jest --save-dev
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Usage
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Configure Jest to process the test results by adding the following entry to the Jest config (jest.config.json or jest.config.js):
 
-### `yarn build`
+```json
+"jest": {
+  ...,
+  "reporters": [
+    "default",
+    "htmlreport4jest"
+  ],
+  ...
+}
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Executing the jest tests with above configuration will create a `result.html` under temp folder inside the project root. Test report can be configured with below options.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Available Options
 
-### `yarn eject`
+The options below are specific to the reporter.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Option Name   | Type    | Default                  | Description                                                                                                                                                                                                                                                                                          |
+| :------------ | :------ | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`  | string  | 'Jest Html Report'                       | Title of the generated html report                                                                                                                                                                                                                                                                                |
+| `reportPath`    | string  | './temp/' | Generated html file will be stored under the given path                                                                                                                                                                                                                                |
+| `reportFileName`      | string | 'result.html'                    | Name of the html report to be generated                                                                                             
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### example add config options
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```json
+...,
+"reporters": [
+  "default",
+  ["htmlreport4jest", {
+    "title": 'Jest Html Report',
+    "reportPath": './temp/',
+    "reportFileName": 'result.html'
+  }]
+]
+```
