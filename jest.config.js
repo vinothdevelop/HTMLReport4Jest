@@ -4,7 +4,8 @@ module.exports = {
         // ["<rootDir>/index.js", {
         //     "reportPath": "./temp/",
         //     "reportFileName": "result.html",
-        //     "title": "Test Report"
+        //     "title": "Test Report",
+        //     "hideMenu": true
         // }]
     ],
     moduleNameMapper: {

@@ -27,7 +27,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.development.config.js --open",
     "build": "webpack --config webpack.build.config.js --mode production",
-    "test": "yarn build && jest --silent"
+    "test": "jest --silent"
   },
   "eslintConfig": {
     "extends": "react-app"
