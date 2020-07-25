@@ -11,7 +11,7 @@ describe('Header title test', () => {
         expect(container.firstChild.lastChild.textContent).toEqual("Test Heading");
     });
 
-    test('Should contain default text if set to undeined', () => {
+    test('Should contain default text if set to undefined', () => {
         const { container } = render(
             <Header heading={undefined} menuStateChange={function () { }}>
             </Header>

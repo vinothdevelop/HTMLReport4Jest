@@ -12,13 +12,20 @@ class TabHeading extends Component {
                 numTotalTests: this.props.item.numTotalTests ?? 0,
                 numPendingTests: this.props.item.numPendingTests ?? 0,
                 numTodoTests: this.props.item.numTodoTests ?? 0
-            }
+            },
+            isChecked: this.props.expandResults
         }
+    }
+    toggleChange = () => {
+        this.setState({
+            isChecked: !this.state.isChecked,
+        });
     }
     render() {
         return (
             <div className="tabs">
-                <input type="checkbox" id={this.props.item.id} />
+                <input type="checkbox" id={this.props.item.id} checked={this.state.isChecked}
+                    onChange={this.toggleChange} />
                 <label className="tab-label" htmlFor={this.props.item.id}>{this.props.item.title}
                     <span className="numberCircleParent">
                         <span className="numberCircle green">{this.state.resultSummary.numPassedTests}</span>
@@ -31,7 +38,7 @@ class TabHeading extends Component {
                 <div className="tab-content row">
                     {
                         this.props.item.children.map((item) => {
-                            return <TabContent item={item} key={item.id} onShowModel={this.props.onShowModel} />
+                            return <TabContent expandResults={this.props.expandResults} item={item} key={item.id} onShowModel={this.props.onShowModel} />
                         }
                         )
                     }
@@ -43,6 +50,7 @@ class TabHeading extends Component {
 }
 TabHeading.propTypes = {
     item: PropTypes.any.isRequired,
-    onShowModel: PropTypes.func.isRequired
+    onShowModel: PropTypes.func.isRequired,
+    expandResults: PropTypes.any
 };
 export default TabHeading;

@@ -7,7 +7,7 @@ class TabContent extends Component {
         const hasChildren = this.props.item.children && this.props.item.children.length > 0;
         let content;
         if (hasChildren) {
-            content = <TabHeading item={this.props.item} onShowModel={this.props.onShowModel} />;
+            content = <TabHeading expandResults={this.props.expandResults} item={this.props.item} onShowModel={this.props.onShowModel} />;
         }
         else {
             content = <Fragment>
@@ -35,6 +35,7 @@ class TabContent extends Component {
 }
 TabContent.propTypes = {
     item: PropTypes.any.isRequired,
-    onShowModel: PropTypes.func.isRequired
+    onShowModel: PropTypes.func.isRequired,
+    expandResults: PropTypes.any
 };
 export default TabContent;

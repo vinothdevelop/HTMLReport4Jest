@@ -5,7 +5,9 @@ export default class ParentNode extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            item: this.props.item
+            item: this.props.item,
+            caretClass: this.props.expandMenuItems ? 'caret-down' : '',
+            nestedClass: this.props.expandMenuItems ? 'active' : '',
         }
     }
     onTreeCaretClick(e) {
@@ -16,7 +18,7 @@ export default class ParentNode extends Component {
     render() {
         return (
             <li>
-                <span className="caret" onClick={(event) => {
+                <span className={`caret ${this.state.caretClass}`} onClick={(event) => {
                     return this.onTreeCaretClick(event);
                 }}>
                 </span>
@@ -25,8 +27,8 @@ export default class ParentNode extends Component {
                 }}>
                     {this.props.item.title}
                 </span>
-                <ul className="nested"  >
-                    <Treenode treeViewData={this.props.item.children} onTreeNodeClick={this.props.onTreeNodeClick} />
+                <ul className={`nested ${this.state.nestedClass}`}>
+                    <Treenode expandMenuItems={this.props.expandMenuItems} treeViewData={this.props.item.children} onTreeNodeClick={this.props.onTreeNodeClick} />
                 </ul>
             </li>
         )
@@ -34,6 +36,7 @@ export default class ParentNode extends Component {
 }
 ParentNode.propTypes = {
     onTreeNodeClick: PropTypes.func.isRequired,
-    item: PropTypes.any.isRequired
+    item: PropTypes.any.isRequired,
+    expandMenuItems: PropTypes.bool
 };
 

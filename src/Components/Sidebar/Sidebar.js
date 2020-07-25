@@ -21,7 +21,7 @@ export default class Sidebar extends Component {
         return (
             <div className={`sidenav ${this.props.menuState}`}>
                 <span className="closebtn" onClick={() => this.onTreeCloseClick()}>&times;</span>
-                <Treeview treeViewData={this.props.treeViewData} onTreeNodeClick={this.props.onTreeNodeClick} />
+                <Treeview expandMenuItems={this.props.expandMenuItems} treeViewData={this.props.treeViewData} onTreeNodeClick={this.props.onTreeNodeClick} />
             </div>
         )
     }
@@ -30,6 +30,7 @@ Sidebar.propTypes = {
     onTreeNodeClick: PropTypes.func.isRequired,
     treeViewData: PropTypes.any.isRequired,
     menuState: PropTypes.string.isRequired,
-    menuStateChange: PropTypes.func.isRequired
+    menuStateChange: PropTypes.func.isRequired,
+    expandMenuItems: PropTypes.bool
 };
 
