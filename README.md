@@ -1,13 +1,18 @@
-### Jest Html reporter
+## Jest Html Reporter
 
 Jest reporter to generate hierarchical html report
 
 ### Installation
 
 ---
-
+Install with npm
 ```shell
   npm install htmlreport4jest --save-dev
+```
+
+Install with yarn
+```shell
+  yarn add htmlreport4jest --dev
 ```
 
 ### Usage
@@ -40,6 +45,8 @@ The options below are specific to the reporter.
 | `reportPath`    | string  | './temp/' | Generated html file will be stored under the given path                                                                                                                                                                                                                                |
 | `reportFileName`      | string | 'result.html'                    | Name of the html report to be generated     |
 | `hideMenu`      | boolen | false                    | Hides filter menu                                                         
+| `expandResults`      | boolen | false                    | Expand result tabs in report                                                         
+| `expandMenuItems`      | boolen | false                    | Expand menu nodes in menu                           
 
 #### example add config options
 
