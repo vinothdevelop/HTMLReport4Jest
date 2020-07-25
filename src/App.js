@@ -141,8 +141,9 @@ class App extends Component {
         treeViewData={this.state.treeViewData}
         menuState={this.state.menuState}
         menuStateChange={() => this.menuStateChange('close')}
-        onTreeNodeClick={this.onTreeNodeClick} />
-      <Main testResults={this.state.gridData} />
+        onTreeNodeClick={this.onTreeNodeClick}
+        expandMenuItems={this.state.testResults?.reporterOptions?.expandMenuItems} />
+      <Main testResults={this.state.gridData} expandResults={this.state.testResults?.reporterOptions?.expandResults} />
     </div>
     );
   }

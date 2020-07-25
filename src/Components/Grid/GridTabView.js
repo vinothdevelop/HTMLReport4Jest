@@ -8,7 +8,7 @@ class GridTabView extends Component {
             <Fragment>
                 {
                     this.props.testResults.map((item) => {
-                        return <TabContent item={item} key={item.id} onShowModel={this.props.onShowModel} />
+                        return <TabContent expandResults={this.props.expandResults} item={item} key={item.id} onShowModel={this.props.onShowModel} />
                     })
                 }
             </Fragment>
@@ -17,6 +17,7 @@ class GridTabView extends Component {
 }
 GridTabView.propTypes = {
     testResults: PropTypes.any.isRequired,
-    onShowModel: PropTypes.func.isRequired
+    onShowModel: PropTypes.func.isRequired,
+    expandResults: PropTypes.any
 };
 export default GridTabView;

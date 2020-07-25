@@ -53,7 +53,7 @@ class Main extends Component {
             <div className="main">
                 <Summary resultSummary={this.state.resultSummary} />
                 <GridHeader />
-                <GridTabView testResults={this.props.testResults.children} onShowModel={this.onShowModel} />
+                <GridTabView expandResults={this.props.expandResults} testResults={this.props.testResults.children} onShowModel={this.onShowModel} />
                 <Modal show={this.state.showModel} onClose={this.onModelClose} modelData={this.state.modelData}>
                 </Modal>
             </div>
@@ -61,6 +61,7 @@ class Main extends Component {
     }
 }
 Main.propTypes = {
-    testResults: PropTypes.any.isRequired
+    testResults: PropTypes.any.isRequired,
+    expandResults: PropTypes.any
 };
 export default Main;
