@@ -55,3 +55,6 @@ The options below are specific to the reporter.
   }]
 ]
 ```
+
+### Sample report
+![Sample report](artifacts/Report.png)
