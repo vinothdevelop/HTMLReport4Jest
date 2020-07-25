@@ -5,7 +5,6 @@ exports[`Header menu test Should hide menu should match snapshot 1`] = `
   <div
     class="App-header"
   >
-    true
     <span>
       Execution Report
     </span>

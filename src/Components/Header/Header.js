@@ -3,7 +3,6 @@ import './Header.css';
 import PropTypes from 'prop-types'
 export const Header = ({ menuStateChange, heading, hideMenu }) =>
     <div className="App-header">
-        {JSON.stringify(hideMenu)}
         {
             (hideMenu) ? <Fragment></Fragment> :
                 <a className="icon" onClick={() => menuStateChange('open')}>&#9776;</a>
