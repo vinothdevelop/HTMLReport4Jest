@@ -1,5 +1,8 @@
 ## Jest Html Reporter
 
+![Node.js Package](https://github.com/contactvinoth89/HTMLReport4Jest/workflows/Node.js%20Package/badge.svg)
+[![npm version](https://img.shields.io/npm/v/htmlreport4jest.svg?style=flat)](https://www.npmjs.com/package/htmlreport4jest 'View this project on npm')
+
 Jest reporter to generate hierarchical html report
 
 ### Installation

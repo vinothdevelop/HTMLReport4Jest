@@ -1,10 +1,35 @@
 import React from "react";
 import "./Modal.css";
 import PropTypes from 'prop-types'
+var Convert = require('ansi-to-html');
+var convert = new Convert();
 export default class Modal extends React.Component {
     onClose = e => {
         this.props.onClose && this.props.onClose(e);
     };
+    escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    replaceStyle(text) {
+        const search = 'style="color:#FFF"'
+        const replaceWith = 'style="color:#000"'
+        return text.split(search).join(replaceWith)
+    }
+    createMarkup(text) {
+        let result = '';
+        if (text && text.length > 0) {
+            for (let i = 0; i < text.length; i++) {
+                result = result.concat(this.replaceStyle(convert.toHtml(this.escapeHtml(text[i]))))
+            }
+        }
+        return { __html: result };
+    }
     render() {
         if (!this.props.show) {
             return null;
@@ -28,13 +53,15 @@ export default class Modal extends React.Component {
                                 </tr>
                                 <tr>
                                     <td>Failure Messages</td>
-                                    <td colSpan="3">{this.props.modelData.failureMessages}</td>
+                                    <td colSpan="3" >
+                                        <pre dangerouslySetInnerHTML={this.createMarkup(this.props?.modelData?.failureMessages)} />
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
-                </div>
+                </div >
             );
         }
     }
