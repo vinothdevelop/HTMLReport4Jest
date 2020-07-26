@@ -1,6 +1,6 @@
 {
   "name": "htmlreport4jest",
-  "version": "0.5.0",
+  "version": "0.5.0-semantically-released",
   "description": "Html report for jest",
   "keywords": [
     "jest",
@@ -71,6 +71,7 @@
     "react": "^16.13.1",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
+    "semantic-release": "^17.1.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
