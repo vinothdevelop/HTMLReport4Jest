@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from "react";
 import "./Modal.css";
 import PropTypes from 'prop-types'
@@ -43,7 +44,9 @@ export default class Modal extends React.Component {
             return (
                 <div className="modal">
                     <div className="modal-content">
-                        <span className="modal-close" onClick={() => { this.onClose() }}>&times;</span>
+                        <span
+                            className="modal-close"
+                            onClick={() => { this.onClose() }}>&times;</span>
                         <table className="modal-table">
                             <tbody>
                                 <tr>

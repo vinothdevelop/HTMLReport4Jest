@@ -28,17 +28,31 @@ class TabHeading extends Component {
                     onChange={this.toggleChange} />
                 <label className="tab-label" htmlFor={this.props.item.id}>{this.props.item.title}
                     <span className="numberCircleParent">
-                        <span className="numberCircle green">{this.state.resultSummary.numPassedTests}</span>
-                        <span className="numberCircle orange">{this.state.resultSummary.numPendingTests}</span>
-                        <span className="numberCircle red">{this.state.resultSummary.numFailedTests}</span>
-                        <span className="numberCircle blue">{this.state.resultSummary.numTotalTests}</span>
-                        <span className="numberCircle gray">{this.state.resultSummary.numTodoTests}</span>
+                        <span className="numberCircle green">
+                            {this.state.resultSummary.numPassedTests}
+                        </span>
+                        <span className="numberCircle orange">
+                            {this.state.resultSummary.numPendingTests}
+                        </span>
+                        <span className="numberCircle red">
+                            {this.state.resultSummary.numFailedTests}
+                        </span>
+                        <span className="numberCircle blue">
+                            {this.state.resultSummary.numTotalTests}
+                        </span>
+                        <span className="numberCircle gray">
+                            {this.state.resultSummary.numTodoTests}
+                        </span>
                     </span>
                 </label>
                 <div className="tab-content row">
                     {
                         this.props.item.children.map((item) => {
-                            return <TabContent expandResults={this.props.expandResults} item={item} key={item.id} onShowModel={this.props.onShowModel} />
+                            return <TabContent
+                                expandResults={this.props.expandResults}
+                                item={item}
+                                key={item.id}
+                                onShowModel={this.props.onShowModel} />
                         }
                         )
                     }

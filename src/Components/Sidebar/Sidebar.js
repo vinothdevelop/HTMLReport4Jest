@@ -5,8 +5,6 @@ import './Sidebar.css';
 import Treeview from '../TreeView/Treeview';
 
 export default class Sidebar extends Component {
-
-    /* using fat arrow to bind to instance */
     onTreeCloseClick = () => {
         this.props.menuStateChange('close');
     }
@@ -21,7 +19,10 @@ export default class Sidebar extends Component {
         return (
             <div className={`sidenav ${this.props.menuState}`}>
                 <span className="closebtn" onClick={() => this.onTreeCloseClick()}>&times;</span>
-                <Treeview expandMenuItems={this.props.expandMenuItems} treeViewData={this.props.treeViewData} onTreeNodeClick={this.props.onTreeNodeClick} />
+                <Treeview
+                    expandMenuItems={this.props.expandMenuItems}
+                    treeViewData={this.props.treeViewData}
+                    onTreeNodeClick={this.props.onTreeNodeClick} />
             </div>
         )
     }

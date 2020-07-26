@@ -53,8 +53,14 @@ class Main extends Component {
             <div className="main">
                 <Summary resultSummary={this.state.resultSummary} />
                 <GridHeader />
-                <GridTabView expandResults={this.props.expandResults} testResults={this.props.testResults.children} onShowModel={this.onShowModel} />
-                <Modal show={this.state.showModel} onClose={this.onModelClose} modelData={this.state.modelData}>
+                <GridTabView
+                    expandResults={this.props.expandResults}
+                    testResults={this.props.testResults.children}
+                    onShowModel={this.onShowModel} />
+                <Modal
+                    show={this.state.showModel}
+                    onClose={this.onModelClose}
+                    modelData={this.state.modelData}>
                 </Modal>
             </div>
         );

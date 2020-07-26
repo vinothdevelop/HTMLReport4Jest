@@ -45,10 +45,14 @@ class App extends Component {
     testResults.forEach(element => {
       if (element.testFilePath || element.fullName) {
         let nodeValue = {};
-        nodeValue.title = element.testFilePath ? this.parseFilePath(element.testFilePath) : element.fullName;
+        nodeValue.title = element.testFilePath
+          ? this.parseFilePath(element.testFilePath)
+          : element.fullName;
         nodeValue.numPassedTests = element.numPassingTests;
         nodeValue.numFailedTests = element.numFailingTests;
-        nodeValue.numTotalTests = element.numPassingTests + element.numFailingTests + element.numPendingTests;
+        nodeValue.numTotalTests = element.numPassingTests
+          + element.numFailingTests
+          + element.numPendingTests;
         nodeValue.numPendingTests = element.numPendingTests;
         nodeValue.numTodoTests = element.numTodoTests;
         nodeValue.failureMessages = element.failureMessage;
@@ -110,7 +114,10 @@ class App extends Component {
           default:
             break;
         }
-        [parentArray[elementIndex].children, id] = this.parseAncestor(ancestorCopy, testCase, parentArray[elementIndex].children, id);
+        [parentArray[elementIndex].children, id] = this.parseAncestor(ancestorCopy
+          , testCase
+          , parentArray[elementIndex].children
+          , id);
       }
 
     }
@@ -136,14 +143,19 @@ class App extends Component {
 
   render() {
     return (<div className="App" >
-      <Header hideMenu={this.state.testResults?.reporterOptions?.hideMenu} heading={this.state.testResults?.reporterOptions?.title} menuStateChange={() => this.menuStateChange('open')} />
+      <Header
+        hideMenu={this.state.testResults?.reporterOptions?.hideMenu}
+        heading={this.state.testResults?.reporterOptions?.title}
+        menuStateChange={() => this.menuStateChange('open')} />
       <Sidebar
         treeViewData={this.state.treeViewData}
         menuState={this.state.menuState}
         menuStateChange={() => this.menuStateChange('close')}
         onTreeNodeClick={this.onTreeNodeClick}
         expandMenuItems={this.state.testResults?.reporterOptions?.expandMenuItems} />
-      <Main testResults={this.state.gridData} expandResults={this.state.testResults?.reporterOptions?.expandResults} />
+      <Main
+        testResults={this.state.gridData}
+        expandResults={this.state.testResults?.reporterOptions?.expandResults} />
     </div>
     );
   }
