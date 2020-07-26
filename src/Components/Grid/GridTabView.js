@@ -8,7 +8,10 @@ class GridTabView extends Component {
             <Fragment>
                 {
                     this.props.testResults.map((item) => {
-                        return <TabContent expandResults={this.props.expandResults} item={item} key={item.id} onShowModel={this.props.onShowModel} />
+                        return <TabContent
+                            expandResults={this.props.expandResults}
+                            item={item} key={item.id}
+                            onShowModel={this.props.onShowModel} />
                     })
                 }
             </Fragment>

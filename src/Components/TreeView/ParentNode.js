@@ -28,7 +28,10 @@ export default class ParentNode extends Component {
                     {this.props.item.title}
                 </span>
                 <ul className={`nested ${this.state.nestedClass}`}>
-                    <Treenode expandMenuItems={this.props.expandMenuItems} treeViewData={this.props.item.children} onTreeNodeClick={this.props.onTreeNodeClick} />
+                    <Treenode
+                        expandMenuItems={this.props.expandMenuItems}
+                        treeViewData={this.props.item.children}
+                        onTreeNodeClick={this.props.onTreeNodeClick} />
                 </ul>
             </li>
         )

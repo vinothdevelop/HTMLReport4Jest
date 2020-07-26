@@ -6,7 +6,10 @@ export default class Treeview extends Component {
     render() {
         return (
             <ul className="treelist">
-                <ParentNode expandMenuItems={this.props.expandMenuItems} item={this.props.treeViewData} onTreeNodeClick={this.props.onTreeNodeClick} />
+                <ParentNode
+                    expandMenuItems={this.props.expandMenuItems}
+                    item={this.props.treeViewData}
+                    onTreeNodeClick={this.props.onTreeNodeClick} />
             </ul>
         )
     }

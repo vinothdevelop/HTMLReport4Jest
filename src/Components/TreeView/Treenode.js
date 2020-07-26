@@ -14,7 +14,10 @@ export default class Treenode extends Component {
                 {
                     this.props.treeViewData.map((item, index) => {
                         return (item.children && item.children.length > 0) ?
-                            <ParentNode expandMenuItems={this.props.expandMenuItems} item={item} key={index} onTreeNodeClick={this.props.onTreeNodeClick} /> :
+                            <ParentNode
+                                expandMenuItems={this.props.expandMenuItems}
+                                item={item} key={index}
+                                onTreeNodeClick={this.props.onTreeNodeClick} /> :
                             <LeafNode item={item} key={index} />;
                     }
                     )
