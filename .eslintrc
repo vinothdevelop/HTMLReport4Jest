@@ -1,7 +1,12 @@
 {
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb-base",
+        "airbnb-base/whitespace",
+        "plugin:prettier/recommended",
+        "prettier",
+        "prettier/react"
     ],
     "parser": "babel-eslint",
     "rules": {
@@ -32,8 +37,20 @@
                 "code": 100,
                 "ignoreUrls": true
             }
-        ]
+        ],
+        "no-var": "error",
+        "semi": "error",
+        "indent": "error",
+        "no-multi-spaces": "error",
+        "space-in-parens": "error",
+        "no-multiple-empty-lines": "error",
+        "prefer-const": "error",
+        "no-use-before-define": "error",
+        "prettier/prettier": "error"
     },
+    "plugins": [
+        "prettier"
+    ],
     "parserOptions": {
         "sourceType": "module",
         "allowImportExportEverywhere": false,
@@ -43,7 +60,8 @@
         "browser": true,
         "node": true,
         "commonjs": true,
-        "jest": true
+        "jest": true,
+        "es6": true
     },
     "settings": {
         "react": {
