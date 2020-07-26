@@ -1,6 +1,7 @@
 import React from "react";
 import "./Modal.css";
 import PropTypes from 'prop-types'
+import DateUtilities from './../../Utilities/DateUtilities'
 var Convert = require('ansi-to-html');
 var convert = new Convert();
 export default class Modal extends React.Component {
@@ -30,6 +31,10 @@ export default class Modal extends React.Component {
         }
         return { __html: result };
     }
+
+    formatTime(value) {
+        return new DateUtilities().convertMillisecondsToTime(value);
+    }
     render() {
         if (!this.props.show) {
             return null;
@@ -47,7 +52,7 @@ export default class Modal extends React.Component {
                                 </tr>
                                 <tr>
                                     <td>Duration</td>
-                                    <td>{this.props.modelData.duration}</td>
+                                    <td>{this.formatTime(this.props.modelData.duration)}</td>
                                     <td>Status</td>
                                     <td>{this.props.modelData.status}</td>
                                 </tr>
@@ -61,7 +66,7 @@ export default class Modal extends React.Component {
                         </table>
 
                     </div>
-                </div >
+                </div>
             );
         }
     }

@@ -2,7 +2,11 @@ import React, { Component, Fragment } from 'react';
 import './TabContent.css'
 import TabHeading from './TabHeading';
 import PropTypes from 'prop-types'
+import DateUtilities from "./../../Utilities/DateUtilities";
 class TabContent extends Component {
+    formatTime(value) {
+        return new DateUtilities().convertMillisecondsToTime(value);
+    }
     render() {
         const hasChildren = this.props.item.children && this.props.item.children.length > 0;
         let content;
@@ -13,7 +17,7 @@ class TabContent extends Component {
             content = <Fragment>
                 <div className="column testcase">{this.props.item.title}</div>
                 <div className="column result">{this.props.item.status}</div>
-                <div className="column time">{this.props.item.duration}</div>
+                <div className="column time">{this.formatTime(this.props.item?.duration)}</div>
                 <div className="column information">
                     <div className="informationicon" onClick={() => this.props.onShowModel(this.props.item)}>
                         <i>
