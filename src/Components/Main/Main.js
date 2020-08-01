@@ -1,41 +1,50 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import './Main.css';
 import Summary from '../Summary/Summary';
 import GridHeader from '../Grid/GridHeader';
 import GridTabView from '../Grid/GridTabView';
 import Modal from './../Modal/Modal';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 class Main extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             resultSummary: {
                 numFailedTests: this.props.testResults.numFailedTests ?? 0,
                 numPassedTests: this.props.testResults.numPassedTests ?? 0,
                 numTotalTests: this.props.testResults.numTotalTests ?? 0,
                 numPendingTests: this.props.testResults.numPendingTests ?? 0,
-                numTodoTests: this.props.testResults.numTodoTests ?? 0
+                numTodoTests: this.props.testResults.numTodoTests ?? 0,
             },
-            showModel: false
+            showModel: false,
         };
         this.onShowModel = this.onShowModel.bind(this);
         this.onModelClose = this.onModelClose.bind(this);
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.testResults.numFailedTests !== this.props.testResults.numFailedTests
-            || prevProps.testResults.numPassedTests !== this.props.testResults.numPassedTests
-            || prevProps.testResults.numTotalTests !== this.props.testResults.numTotalTests
-            || prevProps.testResults.numPendingTests !== this.props.testResults.numPendingTests
-            || prevProps.testResults.numTodoTests !== this.props.testResults.numTodoTests) {
+        if (
+            prevProps.testResults.numFailedTests !==
+            this.props.testResults.numFailedTests ||
+            prevProps.testResults.numPassedTests !==
+            this.props.testResults.numPassedTests ||
+            prevProps.testResults.numTotalTests !==
+            this.props.testResults.numTotalTests ||
+            prevProps.testResults.numPendingTests !==
+            this.props.testResults.numPendingTests ||
+            prevProps.testResults.numTodoTests !==
+            this.props.testResults.numTodoTests
+        ) {
             this.setState({
                 resultSummary: {
                     numFailedTests: this.props.testResults.numFailedTests ?? 0,
                     numPassedTests: this.props.testResults.numPassedTests ?? 0,
                     numTotalTests: this.props.testResults.numTotalTests ?? 0,
-                    numPendingTests: this.props.testResults.numPendingTests ?? 0,
-                    numTodoTests: this.props.testResults.numTodoTests ?? 0
-                }
+                    numPendingTests:
+                        this.props.testResults.numPendingTests ?? 0,
+                    numTodoTests: this.props.testResults.numTodoTests ?? 0,
+                },
             });
         }
     }
@@ -56,18 +65,19 @@ class Main extends Component {
                 <GridTabView
                     expandResults={this.props.expandResults}
                     testResults={this.props.testResults.children}
-                    onShowModel={this.onShowModel} />
+                    onShowModel={this.onShowModel}
+                />
                 <Modal
                     show={this.state.showModel}
                     onClose={this.onModelClose}
-                    modelData={this.state.modelData}>
-                </Modal>
+                    modelData={this.state.modelData}
+                ></Modal>
             </div>
         );
     }
 }
 Main.propTypes = {
     testResults: PropTypes.any.isRequired,
-    expandResults: PropTypes.any
+    expandResults: PropTypes.any,
 };
 export default Main;

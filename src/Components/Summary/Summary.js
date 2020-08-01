@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import './Summary.css';
 import SummaryElement from './SummaryElement';
 
@@ -11,27 +11,32 @@ export default class Summary extends Component {
                 <SummaryElement
                     Category="Passed"
                     styleClass="green"
-                    data={this.props.resultSummary.numPassedTests} />
+                    data={this.props.resultSummary.numPassedTests}
+                />
                 <SummaryElement
                     Category="Pending"
                     styleClass="orange"
-                    data={this.props.resultSummary.numPendingTests} />
+                    data={this.props.resultSummary.numPendingTests}
+                />
                 <SummaryElement
                     Category="Failed"
                     styleClass="red"
-                    data={this.props.resultSummary.numFailedTests} />
+                    data={this.props.resultSummary.numFailedTests}
+                />
                 <SummaryElement
                     Category="Total"
                     styleClass="blue"
-                    data={this.props.resultSummary.numTotalTests} />
+                    data={this.props.resultSummary.numTotalTests}
+                />
                 <SummaryElement
                     Category="Todo"
                     styleClass="gray"
-                    data={this.props.resultSummary.numTodoTests} />
+                    data={this.props.resultSummary.numTodoTests}
+                />
             </div>
-        )
+        );
     }
 }
 Summary.propTypes = {
-    resultSummary: PropTypes.any.isRequired
+    resultSummary: PropTypes.any.isRequired,
 };

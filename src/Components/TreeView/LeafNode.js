@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 export default class LeafNode extends Component {
-
     render() {
-        return (
-            <li>{this.props.item.title}</li>
-        )
+        return <li>{this.props.item.title}</li>;
     }
 }
 LeafNode.propTypes = {
-    item: PropTypes.any.isRequired
+    item: PropTypes.any.isRequired,
 };
