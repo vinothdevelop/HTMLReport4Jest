@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import './Main.css';
 import Summary from '../Summary/Summary';
@@ -6,6 +5,8 @@ import GridHeader from '../Grid/GridHeader';
 import GridTabView from '../Grid/GridTabView';
 import Modal from './../Modal/Modal';
 import PropTypes from 'prop-types';
+import Information from '../Modal/Information';
+
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -26,15 +27,15 @@ class Main extends Component {
     componentDidUpdate(prevProps) {
         if (
             prevProps.testResults.numFailedTests !==
-            this.props.testResults.numFailedTests ||
+                this.props.testResults.numFailedTests ||
             prevProps.testResults.numPassedTests !==
-            this.props.testResults.numPassedTests ||
+                this.props.testResults.numPassedTests ||
             prevProps.testResults.numTotalTests !==
-            this.props.testResults.numTotalTests ||
+                this.props.testResults.numTotalTests ||
             prevProps.testResults.numPendingTests !==
-            this.props.testResults.numPendingTests ||
+                this.props.testResults.numPendingTests ||
             prevProps.testResults.numTodoTests !==
-            this.props.testResults.numTodoTests
+                this.props.testResults.numTodoTests
         ) {
             this.setState({
                 resultSummary: {
@@ -61,6 +62,7 @@ class Main extends Component {
         return (
             <div className="main">
                 <Summary resultSummary={this.state.resultSummary} />
+                <Information info={this.props.information}></Information>
                 <GridHeader />
                 <GridTabView
                     expandResults={this.props.expandResults}
@@ -79,5 +81,6 @@ class Main extends Component {
 Main.propTypes = {
     testResults: PropTypes.any.isRequired,
     expandResults: PropTypes.any,
+    information: PropTypes.array,
 };
 export default Main;

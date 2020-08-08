@@ -17,4 +17,5 @@
         auto-fill,
         minmax(150px, 1fr) minmax(300px, 2fr)
     );
+    padding: 10px 0px;
 }

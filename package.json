@@ -21,9 +21,7 @@
         "url": "https://github.com/contactvinoth89/HTMLReport4Jest/issues"
     },
     "homepage": "https://github.com/contactvinoth89/HTMLReport4Jest#readme",
-    "dependencies": {
-        "fs": "^0.0.1-security"
-    },
+    "dependencies": {},
     "scripts": {
         "start": "webpack-dev-server --config webpack.development.config.js --open",
         "build": "webpack --config webpack.build.config.js --mode production",
