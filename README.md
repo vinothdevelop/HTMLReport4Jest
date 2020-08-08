@@ -10,12 +10,15 @@ Jest reporter to generate hierarchical html report
 ### Installation
 
 ---
+
 Install with npm
+
 ```shell
   npm install htmlreport4jest --save-dev
 ```
 
 Install with yarn
+
 ```shell
   yarn add htmlreport4jest --dev
 ```
@@ -44,14 +47,15 @@ Executing the jest tests with above configuration will create a `result.html` un
 
 The options below are specific to the reporter.
 
-| Option Name   | Type    | Default                  | Description                                                                                                                                                                                                                                                                                          |
-| :------------ | :------ | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`  | string  | 'Jest Html Report'                       | Title of the generated html report                                                                                                                                                                                                                                                                                |
-| `reportPath`    | string  | './temp/' | Generated html file will be stored under the given path                                                                                                                                                                                                                                |
-| `reportFileName`      | string | 'result.html'                    | Name of the html report to be generated     |
-| `hideMenu`      | boolen | false                    | Hides filter menu                                                         
-| `expandResults`      | boolen | false                    | Expand result tabs in report                                                         
-| `expandMenuItems`      | boolen | false                    | Expand menu nodes in menu                           
+| Option Name       | Type   | Default            | Description                                                                                                                                                                                                              |
+| :---------------- | :----- | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`           | string | 'Jest Html Report' | Title of the generated html report                                                                                                                                                                                       |
+| `reportPath`      | string | './temp/'          | Generated html file will be stored under the given path                                                                                                                                                                  |
+| `reportFileName`  | string | 'result.html'      | Name of the html report to be generated                                                                                                                                                                                  |
+| `hideMenu`        | boolen | false              | Hides filter menu                                                                                                                                                                                                        |
+| `expandResults`   | boolen | false              | Expand result tabs in report                                                                                                                                                                                             |
+| `expandMenuItems` | boolen | false              | Expand menu nodes in menu                                                                                                                                                                                                |
+| `information`     | array  |                    | Displays information in the report. Information should be in below format. `[{title:"Environment",value:"CI",type:"string"}]`. Allowed values for type will be string and date. All date will be formated as dd-MMM-yyyy |
 
 #### example add config options
 
@@ -63,10 +67,12 @@ The options below are specific to the reporter.
     "title": 'Jest Html Report',
     "reportPath": './temp/',
     "reportFileName": 'result.html',
-    "hideMenu": true
+    "hideMenu": true,
+    "information": [{ title: 'Environment', value: 'CI', type: 'string' }]
   }]
 ]
 ```
 
 ### Sample report
+
 ![Sample report](artifacts/Report.png)

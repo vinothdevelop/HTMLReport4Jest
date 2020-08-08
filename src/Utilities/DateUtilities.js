@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export default class DateUtilities {
     convertMillisecondsToTime(milliSeconds) {
         if (milliSeconds && !isNaN(milliSeconds)) {
@@ -8,22 +7,38 @@ export default class DateUtilities {
             if (Math.floor(hours) > 0) {
                 return `${Math.floor(hours)} hrs${
                     Math.floor(minutes % 60)
-                        ? ` : ${ Math.floor(minutes % 60) } mins`
+                        ? ` : ${Math.floor(minutes % 60)} mins`
                         : ''
-                    }`;
-            }else if (Math.floor(minutes) > 0) {
+                }`;
+            } else if (Math.floor(minutes) > 0) {
                 return `${Math.floor(minutes)} mins${
                     Math.floor(seconds % 60)
-                        ? ` : ${ Math.floor(seconds % 60) } secs`
+                        ? ` : ${Math.floor(seconds % 60)} secs`
                         : ''
-                    }`;
-            }else if (Math.floor(seconds) > 0) {
-                return `${Math.floor(seconds) } secs`;
-            }else 
-                {return `${milliSeconds } ms`;}
-            
-        } 
+                }`;
+            } else if (Math.floor(seconds) > 0) {
+                return `${Math.floor(seconds)} secs`;
+            } else {
+                return `${milliSeconds} ms`;
+            }
+        }
+        return '';
+    }
+    formatDate(date) {
+        if (date) {
+            date = new Date(date);
+            const ye = new Intl.DateTimeFormat('en', {
+                year: 'numeric',
+            }).format(date);
+            const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(
+                date,
+            );
+            const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
+                date,
+            );
+            return `${da}-${mo}-${ye}`;
+        } else {
             return '';
-        
+        }
     }
 }

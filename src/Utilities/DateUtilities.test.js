@@ -1,5 +1,5 @@
 import DateUtilities from './DateUtilities';
-describe('Timeformatting', () => {
+describe('Time formatting', () => {
     test('Should return empty for null', () => {
         const data = null;
         const result = new DateUtilities().convertMillisecondsToTime(data);
@@ -64,5 +64,18 @@ describe('Timeformatting', () => {
         const data = 1000 * 61 * 60;
         const result = new DateUtilities().convertMillisecondsToTime(data);
         expect(result).toEqual('1 hrs : 1 mins');
+    });
+});
+
+describe('Date formatting', () => {
+    test('format date string', () => {
+        const data = '2020-08-08T12:04:14.473Z';
+        expect(new DateUtilities().formatDate(data)).toEqual('08-Aug-2020');
+    });
+    test('return empty string when null', () => {
+        expect(new DateUtilities().formatDate(null)).toEqual('');
+    });
+    test('return empty string when undefined', () => {
+        expect(new DateUtilities().formatDate(undefined)).toEqual('');
     });
 });

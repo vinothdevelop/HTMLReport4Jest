@@ -183,6 +183,9 @@ class App extends Component {
                     expandResults={
                         this.state.testResults?.reporterOptions?.expandResults
                     }
+                    information={
+                        this.state.testResults?.reporterOptions?.information
+                    }
                 />
             </div>
         );

@@ -7,6 +7,10 @@ module.exports = {
                 title: 'Test Report',
                 expandResults: true,
                 expandMenuItems: true,
+                information: [
+                    { title: 'Date', value: new Date(), type: 'date' },
+                    { title: 'Environment', value: 'CI', type: 'string' },
+                ],
             },
         ],
     ],

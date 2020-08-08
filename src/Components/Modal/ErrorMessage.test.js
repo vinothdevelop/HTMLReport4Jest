@@ -4,11 +4,11 @@ import ErrorMessage from './ErrorMessage';
 import { render } from '@testing-library/react';
 test('Should return empty message when null', () => {
     const { container } = render(<ErrorMessage messages={null}></ErrorMessage>);
-    expect(container.firstChild.firstChild).toBeEmpty();
+    expect(container.firstChild.firstChild).toBeEmptyDOMElement();
 });
 test('Should return empty message when empty', () => {
     const { container } = render(<ErrorMessage messages={[]}></ErrorMessage>);
-    expect(container.firstChild.firstChild).toBeEmpty();
+    expect(container.firstChild.firstChild).toBeEmptyDOMElement();
 });
 
 test('Should return html message', () => {
