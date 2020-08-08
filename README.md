@@ -65,8 +65,6 @@ The options below are specific to the reporter.
   "default",
   ["htmlreport4jest", {
     "title": 'Jest Html Report',
-    "reportPath": './temp/',
-    "reportFileName": 'result.html',
     "hideMenu": true,
     "information": [{ title: 'Environment', value: 'CI', type: 'string' }]
   }]
