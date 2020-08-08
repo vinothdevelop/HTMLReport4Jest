@@ -16,7 +16,7 @@ export const Header = ({ menuStateChange, heading, hideMenu }) => (
 );
 Header.propTypes = {
     menuStateChange: PropTypes.func.isRequired,
-    heading: PropTypes.string.isRequired,
+    heading: PropTypes.string,
     hideMenu: PropTypes.bool,
 };
 export default Header;

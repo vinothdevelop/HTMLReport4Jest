@@ -25,10 +25,7 @@
                 "allowArrayEnd": true
             }
         ],
-        "curly": [
-            "error",
-            "all"
-        ],
+        "curly": ["error", "all"],
         "max-len": [
             "error",
             {
@@ -45,9 +42,7 @@
         "no-use-before-define": "error",
         "prettier/prettier": "error"
     },
-    "plugins": [
-        "prettier"
-    ],
+    "plugins": ["prettier"],
     "parserOptions": {
         "sourceType": "module",
         "allowImportExportEverywhere": false,
@@ -63,5 +58,6 @@
         "react": {
             "version": "detect"
         }
-    }
+    },
+    "reportUnusedDisableDirectives": true
 }
