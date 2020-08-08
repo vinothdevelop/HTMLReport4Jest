@@ -26,11 +26,14 @@ class TabHeading extends Component {
             <div className="tabs">
                 <input
                     type="checkbox"
-                    id={this.props.item.id}
+                    id={`elem_${this.props.item.id}`}
                     checked={this.state.isChecked}
                     onChange={this.toggleChange}
                 />
-                <label className="tab-label" htmlFor={this.props.item.id}>
+                <label
+                    className="tab-label"
+                    htmlFor={`elem_${this.props.item.id}`}
+                >
                     {this.props.item.title}
                     <span className="numberCircleParent">
                         <span className="numberCircle green">

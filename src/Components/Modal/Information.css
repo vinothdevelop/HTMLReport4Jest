@@ -1,0 +1,20 @@
+.box {
+    background-color: #1a252f;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.box:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+.infoWrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(150px, 1fr) minmax(300px, 2fr)
+    );
+}

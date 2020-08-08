@@ -142,6 +142,8 @@ class App extends Component {
         } else {
             let nodeValue = {};
             nodeValue = testCase;
+            nodeValue.id = `id${id}`;
+            id++;
             parentArray.push(nodeValue);
         }
         return [parentArray, id];

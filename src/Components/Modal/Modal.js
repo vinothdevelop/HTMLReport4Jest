@@ -1,49 +1,62 @@
-/* eslint-disable max-len */
 import React from 'react';
 import './Modal.css';
 import PropTypes from 'prop-types';
 import DateUtilities from './../../Utilities/DateUtilities';
-const Convert = require('ansi-to-html');
-const convert = new Convert();
+import ErrorMessage from './ErrorMessage';
+import Information from './Information';
 export default class Modal extends React.Component {
-    onClose = e => {
-        this.props.onClose && this.props.onClose(e);
-    };
-    escapeHtml(unsafe) {
-        return unsafe
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeTab: 'Information',
+        };
+    }
+    prepareInformation(modelData) {
+        const information = [];
+        if (modelData.title) {
+            information.push({
+                title: 'Title',
+                value: modelData.title,
+                type: 'string',
+            });
+        }
+        if (modelData.duration) {
+            information.push({
+                title: 'Duration',
+                value: this.formatTime(modelData.duration),
+                type: 'string',
+            });
+        }
+        if (modelData.status) {
+            information.push({
+                title: 'Status',
+                value: modelData.status,
+                type: 'string',
+            });
+        }
+        return information;
     }
 
-    replaceStyle(text) {
-        const search = 'style="color:#FFF"';
-        const replaceWith = 'style="color:#000"';
-        return text.split(search).join(replaceWith);
-    }
-    createMarkup(text) {
-        let result = '';
-        if (text && text.length > 0) {
-            for (let i = 0; i < text.length; i++) {
-                result = result.concat(
-                    this.replaceStyle(convert.toHtml(this.escapeHtml(text[i]))),
-                );
-            }
-        }
-        return { __html: result };
-    }
+    onClose = e => {
+        this.props.onClose && this.props.onClose(e);
+        this.setState({ activeTab: 'Information' });
+    };
 
     formatTime(value) {
         return new DateUtilities().convertMillisecondsToTime(value);
+    }
+
+    onTabClick(pageName) {
+        this.setState({
+            activeTab: pageName,
+        });
     }
     render() {
         if (!this.props.show) {
             return null;
         } else {
             return (
-                <div className="modal">
+                <div className="modal" key={this.props.modelData.id}>
                     <div className="modal-content">
                         <span
                             className="modal-close"
@@ -53,37 +66,66 @@ export default class Modal extends React.Component {
                         >
                             &times;
                         </span>
-                        <table className="modal-table">
-                            <tbody>
-                                <tr>
-                                    <td>Title</td>
-                                    <td colSpan="3">
-                                        {this.props.modelData.title}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Duration</td>
-                                    <td>
-                                        {this.formatTime(
-                                            this.props.modelData.duration,
-                                        )}
-                                    </td>
-                                    <td>Status</td>
-                                    <td>{this.props.modelData.status}</td>
-                                </tr>
-                                <tr>
-                                    <td>Failure Messages</td>
-                                    <td colSpan="3">
-                                        <pre
-                                            dangerouslySetInnerHTML={this.createMarkup(
-                                                this.props?.modelData
-                                                    ?.failureMessages,
-                                            )}
-                                        />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <button
+                            className={`tablink ${
+                                this.state.activeTab === 'Information'
+                                    ? 'active'
+                                    : 'inactive'
+                            }`}
+                            onClick={() => this.onTabClick('Information')}
+                        >
+                            Information
+                        </button>
+                        <button
+                            className={`tablink ${
+                                this.state.activeTab === 'Error Message'
+                                    ? 'active'
+                                    : 'inactive'
+                            }`}
+                            style={{
+                                visibility:
+                                    this.props?.modelData?.failureMessages &&
+                                    this.props?.modelData?.failureMessages
+                                        .length > 0
+                                        ? 'visible'
+                                        : 'hidden',
+                            }}
+                            onClick={() => this.onTabClick('Error Message')}
+                        >
+                            Error Message
+                        </button>
+
+                        <div
+                            style={{
+                                display:
+                                    this.state.activeTab === 'Information'
+                                        ? 'block'
+                                        : 'none',
+                            }}
+                            className="tabcontent"
+                        >
+                            <Information
+                                info={this.prepareInformation(
+                                    this.props.modelData,
+                                )}
+                            />
+                        </div>
+
+                        <div
+                            style={{
+                                display:
+                                    this.state.activeTab === 'Error Message'
+                                        ? 'block'
+                                        : 'none',
+                            }}
+                            className="tabcontent"
+                        >
+                            <ErrorMessage
+                                messages={
+                                    this.props?.modelData?.failureMessages
+                                }
+                            />
+                        </div>
                     </div>
                 </div>
             );
@@ -93,5 +135,5 @@ export default class Modal extends React.Component {
 Modal.propTypes = {
     onClose: PropTypes.func.isRequired,
     show: PropTypes.bool.isRequired,
-    modelData: PropTypes.any.isRequired,
+    modelData: PropTypes.any,
 };
