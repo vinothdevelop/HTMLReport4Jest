@@ -5,7 +5,7 @@ import GridHeader from '../Grid/GridHeader';
 import GridTabView from '../Grid/GridTabView';
 import Modal from './../Modal/Modal';
 import PropTypes from 'prop-types';
-import Information from '../Modal/Information';
+import Information from '../Information/Information';
 
 class Main extends Component {
     constructor(props) {

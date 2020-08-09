@@ -14,6 +14,7 @@ class App extends Component {
             menuState: 'close',
             testResults: data,
             treeViewData: this.formatTreeViewData(data),
+            information: this.getInformation(data),
         };
         this.onTreeNodeClick = this.onTreeNodeClick.bind(this);
         this.state.gridData = this.state.treeViewData;
@@ -161,6 +162,40 @@ class App extends Component {
         this.setState({ gridData: item });
     }
 
+    getInformation(data) {
+        const information = [...(data?.reporterOptions?.information ?? [])];
+        information.push({
+            title: 'Start Time',
+            value: data?.startTime,
+            type: 'datetime',
+        });
+        if (data?.endTime) {
+            information.push({
+                title: 'End Time',
+                value: data?.endTime,
+                type: 'datetime',
+            });
+            information.push({
+                title: 'Elapsed',
+                value: data?.endTime - data?.startTime,
+                type: 'time',
+            });
+        }
+        if (data?.openHandles && data.openHandles.length > 0) {
+            information.push({
+                title: 'Open Handles',
+                value: data?.openHandles?.length,
+                type: 'number',
+            });
+        }
+        information.push({
+            title: 'Interupted',
+            value: data?.wasInterrupted,
+            type: 'boolean',
+        });
+        return information;
+    }
+
     render() {
         return (
             <div className="App">
@@ -183,9 +218,7 @@ class App extends Component {
                     expandResults={
                         this.state.testResults?.reporterOptions?.expandResults
                     }
-                    information={
-                        this.state.testResults?.reporterOptions?.information
-                    }
+                    information={this.state.information}
                 />
             </div>
         );

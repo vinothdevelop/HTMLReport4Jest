@@ -3,7 +3,7 @@ import './Modal.css';
 import PropTypes from 'prop-types';
 import DateUtilities from './../../Utilities/DateUtilities';
 import ErrorMessage from './ErrorMessage';
-import Information from './Information';
+import Information from '../Information/Information';
 export default class Modal extends React.Component {
     constructor(props) {
         super(props);

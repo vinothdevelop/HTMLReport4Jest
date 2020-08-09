@@ -79,3 +79,18 @@ describe('Date formatting', () => {
         expect(new DateUtilities().formatDate(undefined)).toEqual('');
     });
 });
+
+describe('DateTime formatting', () => {
+    test('format datetime string', () => {
+        const data = new Date(2012, 11, 20, 3, 0, 0, 200);
+        expect(new DateUtilities().formatDateTime(data)).toEqual(
+            '20-Dec-2012 03:00:00',
+        );
+    });
+    test('return empty string when null', () => {
+        expect(new DateUtilities().formatDateTime(null)).toEqual('');
+    });
+    test('return empty string when undefined', () => {
+        expect(new DateUtilities().formatDateTime(undefined)).toEqual('');
+    });
+});
