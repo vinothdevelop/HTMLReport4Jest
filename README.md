@@ -47,15 +47,26 @@ Executing the jest tests with above configuration will create a `result.html` un
 
 The options below are specific to the reporter.
 
-| Option Name       | Type   | Default            | Description                                                                                                                                                                                                              |
-| :---------------- | :----- | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`           | string | 'Jest Html Report' | Title of the generated html report                                                                                                                                                                                       |
-| `reportPath`      | string | './temp/'          | Generated html file will be stored under the given path                                                                                                                                                                  |
-| `reportFileName`  | string | 'result.html'      | Name of the html report to be generated                                                                                                                                                                                  |
-| `hideMenu`        | boolen | false              | Hides filter menu                                                                                                                                                                                                        |
-| `expandResults`   | boolen | false              | Expand result tabs in report                                                                                                                                                                                             |
-| `expandMenuItems` | boolen | false              | Expand menu nodes in menu                                                                                                                                                                                                |
-| `information`     | array  |                    | Displays information in the report. Information should be in below format. `[{title:"Environment",value:"CI",type:"string"}]`. Allowed values for type will be string and date. All date will be formated as dd-MMM-yyyy |
+| Option Name       | Type   | Default            | Description                                                                                                                                                      |
+| :---------------- | :----- | :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`           | string | 'Jest Html Report' | Title of the generated html report                                                                                                                               |
+| `reportPath`      | string | './temp/'          | Generated html file will be stored under the given path                                                                                                          |
+| `reportFileName`  | string | 'result.html'      | Name of the html report to be generated                                                                                                                          |
+| `hideMenu`        | boolen | false              | Hides filter menu                                                                                                                                                |
+| `expandResults`   | boolen | false              | Expand result tabs in report                                                                                                                                     |
+| `expandMenuItems` | boolen | false              | Expand menu nodes in menu                                                                                                                                        |
+| `information`     | array  |                    | Displays information in the report. Information should be in below format. `[{title:"Environment",value:"CI",type:"string"}]`. Allowed values for type are given |
+
+### Allowed Types
+
+Data types allowed for information.
+| Type | Example | Description |
+| :---------------- | :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `string` | "CI" | Will display the text passed |
+| `date` | new Date() | Date object or timestamp can be passed. All date will be formated as dd-MMM-yyyy |
+| `datetime` | new Date() | Date object or timestamp can be passed. All datetime will be formated as dd-MMM-yyyy hh:mm:ss |
+| `time` | 1234 | timestamp can be passed.|
+| `boolen` | true or false | true will be displayed as "Yes" and false will be displayed as "No".|
 
 #### example add config options
 

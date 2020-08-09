@@ -4,8 +4,22 @@ import './Information.css';
 import DateUtilities from './../../Utilities/DateUtilities';
 export default class Information extends React.Component {
     formatData(item) {
-        if (item?.type && item?.value && item.type === 'date') {
-            return new DateUtilities().formatDate(item.value);
+        if (item?.type) {
+            if (item.type === 'date' && item?.value) {
+                return new DateUtilities().formatDate(item.value);
+            } else if (item.type === 'datetime' && item?.value) {
+                return new DateUtilities().formatDateTime(item.value);
+            } else if (item.type === 'boolean' && item?.value) {
+                return 'Yes';
+            } else if (item.type === 'boolean' && !item?.value) {
+                return 'No';
+            } else if (item.type === 'time') {
+                return new DateUtilities().convertMillisecondsToTime(
+                    item.value,
+                );
+            } else {
+                return item?.value;
+            }
         } else {
             return item?.value;
         }

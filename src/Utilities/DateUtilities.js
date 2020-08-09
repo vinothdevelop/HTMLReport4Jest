@@ -41,4 +41,21 @@ export default class DateUtilities {
             return '';
         }
     }
+
+    formatDateTime(date) {
+        if (date) {
+            const options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: false,
+            };
+            return `${this.formatDate(date)} ${new Intl.DateTimeFormat(
+                'default',
+                options,
+            ).format(date)}`;
+        } else {
+            return '';
+        }
+    }
 }
