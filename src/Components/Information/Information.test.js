@@ -30,11 +30,17 @@ test('Should have formatted date', () => {
     );
 });
 test('Should have formatted datetime', () => {
-    const info = [{ title: 'Title', value: 1596888263337, type: 'datetime' }];
+    const info = [
+        {
+            title: 'Title',
+            value: new Date(2012, 11, 20, 3, 0, 0, 200),
+            type: 'datetime',
+        },
+    ];
     const { container } = render(<Information info={info}></Information>);
     expect(container.firstChild.childNodes.length).toEqual(2);
     expect(container.firstChild.childNodes[1].textContent).toEqual(
-        '08-Aug-2020 17:34:23',
+        '20-Dec-2012 03:00:00',
     );
 });
 describe('boolean', () => {

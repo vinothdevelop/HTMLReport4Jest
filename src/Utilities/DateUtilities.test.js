@@ -87,12 +87,6 @@ describe('DateTime formatting', () => {
             '20-Dec-2012 03:00:00',
         );
     });
-    test('format datetime from timestamp string', () => {
-        const data = 1596888263337;
-        expect(new DateUtilities().formatDateTime(data)).toEqual(
-            '08-Aug-2020 17:34:23',
-        );
-    });
     test('return empty string when null', () => {
         expect(new DateUtilities().formatDateTime(null)).toEqual('');
     });
