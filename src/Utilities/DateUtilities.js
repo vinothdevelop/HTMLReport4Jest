@@ -45,7 +45,16 @@ export default class DateUtilities {
     formatDateTime(date) {
         if (date) {
             date = new Date(date);
-            return `${this.formatDate(date)} ${date.toLocaleTimeString()}`;
+            const options = {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+            };
+            return `${this.formatDate(date)} ${date.toLocaleTimeString(
+                'en',
+                options,
+            )}`;
         } else {
             return '';
         }
