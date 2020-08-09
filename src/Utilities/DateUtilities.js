@@ -45,16 +45,13 @@ export default class DateUtilities {
     formatDateTime(date) {
         if (date) {
             date = new Date(date);
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
+            const time = new Intl.DateTimeFormat('en', {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
                 hour12: false,
-            };
-            return `${this.formatDate(date)} ${date.toLocaleTimeString(
-                'en',
-                options,
-            )}`;
+            }).format(date);
+            return `${this.formatDate(date)} ${time}`;
         } else {
             return '';
         }
