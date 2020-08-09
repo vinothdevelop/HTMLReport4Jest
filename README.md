@@ -66,7 +66,7 @@ Data types allowed for information.
 | `date` | new Date() | Date object or timestamp can be passed. All date will be formated as dd-MMM-yyyy |
 | `datetime` | new Date() | Date object or timestamp can be passed. All datetime will be formated as dd-MMM-yyyy hh:mm:ss |
 | `time` | 1234 | timestamp can be passed.|
-| `boolen` | true or false | true will be displayed as "Yes" and false will be displayed as "No".|
+| `boolean` | true or false | true will be displayed as "Yes" and false will be displayed as "No".|
 
 #### example add config options
 
