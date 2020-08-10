@@ -84,4 +84,4 @@ Data types allowed for information.
 
 ### Sample report
 
-![Sample report](artifacts/Report.png)
+![Sample report](https://raw.githubusercontent.com/contactvinoth89/HTMLReport4Jest/main/artifacts/Report.png)
