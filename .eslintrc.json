@@ -4,7 +4,8 @@
         "plugin:react/recommended",
         "plugin:prettier/recommended",
         "prettier",
-        "prettier/react"
+        "prettier/react",
+        "plugin:react-hooks/recommended"
     ],
     "parser": "babel-eslint",
     "rules": {
