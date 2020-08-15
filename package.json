@@ -20,7 +20,7 @@
     "bugs": {
         "url": "https://github.com/contactvinoth89/HTMLReport4Jest/issues"
     },
-    "homepage": "https://github.com/contactvinoth89/HTMLReport4Jest#readme",
+    "homepage": "https://contactvinoth89.github.io/HTMLReport4Jest/",
     "dependencies": {},
     "scripts": {
         "start": "webpack-dev-server --config webpack.development.config.js --open",
