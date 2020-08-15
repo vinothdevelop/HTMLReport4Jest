@@ -10,16 +10,74 @@
     position: fixed;
     width: 100%;
     z-index: 2;
-  }
+}
 
-  .icon {
-     display: none; 
-    float: left;
-    padding: 14px 16px;
+input#menu {
+    display: none;
+}
+
+.icon {
     cursor: pointer;
     display: block;
-  }
+    height: 24px;
+    padding: 16px;
+    width: 24px;
+}
 
-  .App-header span{
+label.icon {
+    position: fixed;
+    z-index: 200;
+}
+
+.icon .menu,
+.icon .menu::before,
+.icon .menu::after {
+    background: #9fb1bd;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
+    width: 20px;
+}
+
+.icon:hover .menu,
+.icon:hover .menu::before,
+.icon:hover .menu::after {
+    background: #47b74b;
+}
+
+.icon .menu {
+    left: 18px;
+    top: 27px;
+}
+
+.icon .menu::before {
+    top: -6px;
+}
+
+.icon .menu::after {
+    top: 6px;
+}
+
+#menu:checked + .icon .menu {
+    background: transparent;
+}
+
+#menu:checked + .icon .menu::before {
+    transform: rotate(45deg);
+}
+
+#menu:checked + .icon .menu::after {
+    transform: rotate(-45deg);
+}
+
+#menu:checked + .icon .menu::before,
+#menu:checked + .icon .menu::after {
+    top: 0;
+    transition: top ease 0.3s, transform ease 0.3s 0.3s;
+}
+
+.App-header span {
     line-height: 50px;
-  }
+}

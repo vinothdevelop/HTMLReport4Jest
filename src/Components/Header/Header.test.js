@@ -46,7 +46,7 @@ describe('Header menu test', () => {
                 menuStateChange={function () {}}
             ></Header>,
         );
-        expect(container.getElementsByTagName('a').length).toEqual(0);
+        expect(container.getElementsByClassName('menu').length).toEqual(0);
     });
     test('Should not hide menu', () => {
         const { container } = render(
@@ -56,13 +56,13 @@ describe('Header menu test', () => {
                 menuStateChange={function () {}}
             ></Header>,
         );
-        expect(container.getElementsByTagName('a').length).toEqual(1);
+        expect(container.getElementsByClassName('menu').length).toEqual(1);
     });
     test('Should not hide menu on null', () => {
         const { container } = render(
             <Header heading={null} menuStateChange={function () {}}></Header>,
         );
-        expect(container.getElementsByTagName('a').length).toEqual(1);
+        expect(container.getElementsByClassName('menu').length).toEqual(1);
     });
 
     test('Should hide menu should match snapshot', () => {
@@ -93,5 +93,8 @@ test('Should fire event on click', () => {
         <Header heading="Test Heading" menuStateChange={FakeFun}></Header>,
     );
     fireEvent.click(container.firstChild.firstChild);
-    expect(FakeFun).toHaveBeenCalled();
+    fireEvent.click(container.firstChild.firstChild);
+    expect(FakeFun).toHaveBeenCalledTimes(2);
+    expect(FakeFun).toHaveBeenNthCalledWith(1, 'open');
+    expect(FakeFun).toHaveBeenNthCalledWith(2, 'close');
 });
