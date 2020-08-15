@@ -78,9 +78,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
     </div>
     <div
       class="box box2"
-    >
-      14-Apr-2018 08:12:56
-    </div>
+    />
     <div
       class="box box1"
     >

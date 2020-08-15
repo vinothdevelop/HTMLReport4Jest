@@ -62,6 +62,8 @@ describe('Tree click', () => {
     test('Should call function on tree node click', () => {
         window.resultData = data;
         const { container } = render(<App></App>);
+        const date = container.querySelector('.box2');
+        date.textContent = '';
         fireEvent.click(container.querySelector('#menu'));
         expect(
             container.querySelector('.sidenav').classList.contains('open'),
