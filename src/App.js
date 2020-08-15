@@ -18,6 +18,7 @@ class App extends Component {
         };
         this.onTreeNodeClick = this.onTreeNodeClick.bind(this);
         this.state.gridData = this.state.treeViewData;
+        this.menuStateChange = this.menuStateChange.bind(this);
     }
     formatTreeViewData(testResults) {
         const testResultData = {};
@@ -202,12 +203,11 @@ class App extends Component {
                 <Header
                     hideMenu={this.state.testResults?.reporterOptions?.hideMenu}
                     heading={this.state.testResults?.reporterOptions?.title}
-                    menuStateChange={() => this.menuStateChange('open')}
+                    menuStateChange={this.menuStateChange}
                 />
                 <Sidebar
                     treeViewData={this.state.treeViewData}
                     menuState={this.state.menuState}
-                    menuStateChange={() => this.menuStateChange('close')}
                     onTreeNodeClick={this.onTreeNodeClick}
                     expandMenuItems={
                         this.state.testResults?.reporterOptions?.expandMenuItems

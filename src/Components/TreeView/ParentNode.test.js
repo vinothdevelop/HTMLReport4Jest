@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import ParentNode from './ParentNode';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 describe('Expand Menu Test', () => {
     test('Should contain expanded class when expandMenuItems is true', () => {
         const item = {
@@ -123,5 +123,23 @@ describe('Expand Menu Test', () => {
         expect(
             container.firstChild.lastChild.classList.contains('active'),
         ).toBe(true);
+    });
+
+    test('Should be expandable when expandMenuItems is false', () => {
+        const mockCallback = jest.fn();
+        const item = {
+            title: 'Menu parent',
+            children: [{ title: 'Menu child' }],
+        };
+        render(
+            <ParentNode
+                expandMenuItems={false}
+                item={item}
+                onTreeNodeClick={mockCallback}
+            ></ParentNode>,
+        );
+        fireEvent.click(screen.getByText('Menu parent'));
+        expect(mockCallback).toHaveBeenCalledTimes(1);
+        expect(mockCallback).toHaveBeenNthCalledWith(1, item);
     });
 });

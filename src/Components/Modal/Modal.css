@@ -10,9 +10,9 @@
     padding-top: 100px;
     background-color: black;
     background-color: rgba(0, 0, 0, 0.4);
-    -webkit-transition: 0.5s;
     overflow: auto;
-    transition: all 0.3s linear;
+    animation-name: appear;
+    animation-duration: 300ms;
 }
 
 /* Modal Content/Box */
@@ -23,6 +23,28 @@
     border-radius: 4px;
     width: 80%;
     height: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slide-in {
+    from {
+        transform: translateY(-150px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 /* The Close Button */
@@ -45,7 +67,6 @@ body,
 html {
     height: 100%;
     margin: 0;
-    font-family: Arial;
 }
 
 /* Style tab links */

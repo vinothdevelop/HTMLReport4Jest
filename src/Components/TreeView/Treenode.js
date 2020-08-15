@@ -2,7 +2,9 @@
 import React, { Component, Fragment } from 'react';
 
 import './Treenode.css';
+
 import LeafNode from './LeafNode';
+
 import ParentNode from './ParentNode';
 import PropTypes from 'prop-types';
 export default class Treenode extends Component {
@@ -18,8 +20,7 @@ export default class Treenode extends Component {
                             onTreeNodeClick={this.props.onTreeNodeClick}
                         />
                     ) :
-                        (
-                            <LeafNode item={item} key={index} />
+                        (<LeafNode item={item} key={index} /> 
                         );
                 })}
             </Fragment>

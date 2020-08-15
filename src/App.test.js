@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import App from './App';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 const data = require('./data/nested.json');
 const sampleData = require('./data/sample.json');
 describe('Page Information', () => {
@@ -40,5 +40,36 @@ describe('Page Information', () => {
         expect(
             container.querySelector('.infoWrapper').childNodes.length,
         ).toEqual(10);
+    });
+});
+
+describe('Menu click', () => {
+    test('Should show and hide tree on click', () => {
+        window.resultData = data;
+        const { container } = render(<App></App>);
+        fireEvent.click(container.querySelector('#menu'));
+        expect(
+            container.querySelector('.sidenav').classList.contains('open'),
+        ).toEqual(true);
+        fireEvent.click(container.querySelector('#menu'));
+        expect(
+            container.querySelector('.sidenav').classList.contains('close'),
+        ).toEqual(true);
+    });
+});
+
+describe('Tree click', () => {
+    test('Should call function on tree node click', () => {
+        window.resultData = data;
+        const { container } = render(<App></App>);
+        const date = container.querySelector('.box2');
+        date.textContent = '';
+        fireEvent.click(container.querySelector('#menu'));
+        expect(
+            container.querySelector('.sidenav').classList.contains('open'),
+        ).toEqual(true);
+        const elem = container.querySelectorAll('.nodeTitle');
+        fireEvent.click(elem[1]);
+        expect(container.querySelector('.main')).toMatchSnapshot();
     });
 });
