@@ -17,6 +17,10 @@
     ],
     "author": "Vinoth",
     "license": "ISC",
+"repository": {
+    "type": "git",
+    "url": "https://github.com/vinothdevelop/HTMLReport4Jest"
+  },
     "bugs": {
         "url": "https://github.com/vinothdevelop/HTMLReport4Jest/issues"
     },
