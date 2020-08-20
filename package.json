@@ -18,9 +18,9 @@
     "author": "Vinoth",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/contactvinoth89/HTMLReport4Jest/issues"
+        "url": "https://github.com/vinothdevelop/HTMLReport4Jest/issues"
     },
-    "homepage": "https://contactvinoth89.github.io/HTMLReport4Jest/",
+    "homepage": "https://vinothdevelop.github.io/HTMLReport4Jest/",
     "dependencies": {},
     "scripts": {
         "start": "webpack-dev-server --config webpack.development.config.js --open",
