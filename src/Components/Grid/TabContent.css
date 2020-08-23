@@ -1,9 +1,0 @@
-.informationicon{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10%;
-    box-shadow: 1px -1px #fafafa inset;
-}
-
