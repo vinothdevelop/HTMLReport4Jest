@@ -3,6 +3,7 @@
 ![build](https://github.com/contactvinoth89/HTMLReport4Jest/workflows/build/badge.svg)
 [![npm version](https://img.shields.io/npm/v/htmlreport4jest.svg?style=flat)](https://www.npmjs.com/package/htmlreport4jest 'View this project on npm')
 [![downloads/month](https://img.shields.io/npm/dm/htmlreport4jest.svg?style=flat)](https://www.npmjs.com/package/htmlreport4jest 'View this project on npm')
+[![install size](https://packagephobia.com/badge?p=htmlreport4jest)](https://packagephobia.com/result?p=htmlreport4jest)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Jest reporter to generate hierarchical html report
