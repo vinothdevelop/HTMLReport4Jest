@@ -29,9 +29,16 @@ class App extends Component {
             title: 'All',
             numPassedTests: testResultData.numPassedTests,
             numFailedTests: testResultData.numFailedTests,
-            numTotalTests: testResultData.numTotalTests,
             numPendingTests: testResultData.numPendingTests,
             numTodoTests: testResultData.numTodoTests,
+            numFailedTestSuites: testResultData.numFailedTestSuites,
+            numPassedTestSuites: testResultData.numPassedTestSuites,
+            numPendingTestSuites: testResultData.numPendingTestSuites,
+            numRuntimeErrorTestSuites: testResultData.numRuntimeErrorTestSuites,
+            numMatchedSnapshot: testResultData.snapshot?.matched,
+            numAddedSnapshot: testResultData.snapshot?.added,
+            numUnmatchedSnapshot: testResultData.snapshot?.unmatched,
+            numUpdatedSnapshot: testResultData.snapshot.updated,
             id: `id${1}`,
         };
         id++;
@@ -63,6 +70,16 @@ class App extends Component {
                 nodeValue.numPendingTests = element.numPendingTests;
                 nodeValue.numTodoTests = element.numTodoTests;
                 nodeValue.failureMessages = element.failureMessage;
+                nodeValue.numFailedTestSuites = element.numFailedTestSuites;
+                nodeValue.numFailnumPassedTestSuitesedTests =
+                    element.numPassedTestSuites;
+                nodeValue.numPendingTestSuites = element.numPendingTestSuites;
+                nodeValue.numRuntimeErrorTestSuites =
+                    element.numRuntimeErrorTestSuites;
+                nodeValue.numMatchedSnapshot = element.snapshot?.matched;
+                nodeValue.numAddedSnapshot = element.snapshot?.added;
+                nodeValue.numUnmatchedSnapshot = element.snapshot?.unmatched;
+                nodeValue.numUpdatedSnapshot = element.snapshot?.updated;
                 nodeValue.id = `id${id}`;
                 id++;
                 if (element.testResults) {
@@ -105,6 +122,10 @@ class App extends Component {
                 nodeValue.numPendingTests =
                     testCase.status === 'pending' ? 1 : 0;
                 nodeValue.numTodoTests = testCase.status === 'todo' ? 1 : 0;
+                nodeValue.numFailedTestSuites = 0;
+                nodeValue.numFailnumPassedTestSuitesedTests = 0;
+                nodeValue.numPendingTestSuites = 0;
+                nodeValue.numRuntimeErrorTestSuites = 0;
                 nodeValue.id = `id${id}`;
                 id++;
                 ancestorCopy.shift();
@@ -219,6 +240,7 @@ class App extends Component {
                         this.state.testResults?.reporterOptions?.expandResults
                     }
                     information={this.state.information}
+                    menuState={this.state.menuState}
                 />
             </div>
         );

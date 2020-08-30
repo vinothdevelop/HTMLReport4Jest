@@ -18,6 +18,7 @@ module.exports = merge.merge(common, {
         port: 9000,
         hot: true,
         open: true,
+        writeToDisk: true,
         overlay: {
             errors: true,
         },

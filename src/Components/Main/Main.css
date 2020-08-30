@@ -1,10 +1,24 @@
-
 .main {
     padding: 11vh 1vw 1vh 1vw;
-  }
+    position: absolute;
+    align-content: space-around;
+    transition: margin-left 0.5s;
+}
 
-  @media screen and (max-width: 700px) {
+@media screen and (max-width: 700px) {
     div.main {
         padding: 14vh 1vw 1vh 1vw;
     }
-  }
+}
+
+.menuopen {
+    left: 32%;
+    width: 67%;
+    padding: 20px;
+    top: 50px;
+}
+
+.menuclose {
+    left: 0px;
+    width: 98%;
+}
