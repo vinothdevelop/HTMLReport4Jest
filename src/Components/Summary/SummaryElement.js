@@ -43,7 +43,7 @@ export default class SummaryElement extends Component {
 
     render() {
         return (
-            <div className="dot">
+            <div className="card">
                 <Pie
                     data={this.state.data}
                     options={{

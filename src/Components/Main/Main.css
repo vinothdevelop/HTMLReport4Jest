@@ -20,5 +20,16 @@
 
 .menuclose {
     left: 0px;
-    width: 98%;
+}
+
+@media screen and (min-width: 1024px) {
+    .menuclose {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .menuclose {
+        width: 98%;
+    }
 }

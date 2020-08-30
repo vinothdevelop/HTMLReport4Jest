@@ -1,6 +1,5 @@
-.dot {
-    width: 425px;
-    display: inline-block;
-    padding: 5px 0px 0px 0px;
+.card {
+    padding: 1rem;
     position: relative;
+    max-width: 350px;
 }

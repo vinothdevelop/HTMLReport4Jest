@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import './Summary.css';
@@ -72,7 +72,7 @@ export default class Summary extends Component {
     }
     render() {
         return (
-            <Fragment>
+            <div className="cards">
                 <SummaryElement
                     key={`${this.props.id}_1`}
                     data={this.state.testSummaryData}
@@ -88,7 +88,7 @@ export default class Summary extends Component {
                     data={this.state.snapshotSummaryData}
                     title={'Snapshot Summary'}
                 />
-            </Fragment>
+            </div>
         );
     }
 }
