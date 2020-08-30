@@ -38,7 +38,7 @@ class App extends Component {
             numMatchedSnapshot: testResultData.snapshot?.matched,
             numAddedSnapshot: testResultData.snapshot?.added,
             numUnmatchedSnapshot: testResultData.snapshot?.unmatched,
-            numUpdatedSnapshot: testResultData.snapshot.updated,
+            numUpdatedSnapshot: testResultData.snapshot?.updated,
             id: `id${1}`,
         };
         id++;
