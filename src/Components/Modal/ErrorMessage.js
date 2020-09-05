@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Convert = require('ansi-to-html');
 const convert = new Convert({
     fg: '#000',
+    bg: '#fff',
     newline: false,
 });
 export default class ErrorMessage extends React.Component {
