@@ -1,0 +1,18 @@
+.statusicon {
+    vertical-align: text-bottom;
+}
+
+.passed {
+    color: green;
+}
+
+.failed {
+    color: red;
+}
+.pending {
+    color: orange;
+}
+
+.todo {
+    color: gray;
+}
