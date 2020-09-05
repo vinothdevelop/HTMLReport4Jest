@@ -10,16 +10,7 @@ import Information from '../Information/Information';
 class Main extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            resultSummary: {
-                numFailedTests: this.props.testResults.numFailedTests ?? 0,
-                numPassedTests: this.props.testResults.numPassedTests ?? 0,
-                numTotalTests: this.props.testResults.numTotalTests ?? 0,
-                numPendingTests: this.props.testResults.numPendingTests ?? 0,
-                numTodoTests: this.props.testResults.numTodoTests ?? 0,
-            },
-            showModel: false,
-        };
+        this.state = { showModel: false };
         this.onShowModel = this.onShowModel.bind(this);
         this.onModelClose = this.onModelClose.bind(this);
     }
@@ -35,19 +26,40 @@ class Main extends Component {
             prevProps.testResults.numPendingTests !==
                 this.props.testResults.numPendingTests ||
             prevProps.testResults.numTodoTests !==
-                this.props.testResults.numTodoTests
+                this.props.testResults.numTodoTests ||
+            prevProps.testResults.numFailedTestSuites !==
+                this.props.testResults.numFailedTestSuites ||
+            prevProps.testResults.numPendingTestSuites !==
+                this.props.testResults.numPendingTestSuites ||
+            prevProps.testResults.numPassedTestSuites !==
+                this.props.testResults.numPassedTestSuites ||
+            prevProps.testResults.numRuntimeErrorTestSuites !==
+                this.props.testResults.numRuntimeErrorTestSuites
         ) {
-            this.setState({
-                resultSummary: {
-                    numFailedTests: this.props.testResults.numFailedTests ?? 0,
-                    numPassedTests: this.props.testResults.numPassedTests ?? 0,
-                    numTotalTests: this.props.testResults.numTotalTests ?? 0,
-                    numPendingTests:
-                        this.props.testResults.numPendingTests ?? 0,
-                    numTodoTests: this.props.testResults.numTodoTests ?? 0,
-                },
-            });
+            return;
         }
+    }
+
+    getSummary() {
+        return {
+            numFailedTests: this.props.testResults.numFailedTests ?? 0,
+            numPassedTests: this.props.testResults.numPassedTests ?? 0,
+            numPendingTests: this.props.testResults.numPendingTests ?? 0,
+            numTodoTests: this.props.testResults.numTodoTests ?? 0,
+            numFailedTestSuites:
+                this.props.testResults.numFailedTestSuites ?? 0,
+            numPassedTestSuites:
+                this.props.testResults.numPassedTestSuites ?? 0,
+            numPendingTestSuites:
+                this.props.testResults.numPendingTestSuites ?? 0,
+            numRuntimeErrorTestSuites:
+                this.props.testResults.numRuntimeErrorTestSuites ?? 0,
+            numAddedSnapshot: this.props.testResults.numAddedSnapshot ?? 0,
+            numMatchedSnapshot: this.props.testResults.numMatchedSnapshot ?? 0,
+            numUnmatchedSnapshot:
+                this.props.testResults.numUnmatchedSnapshot ?? 0,
+            numUpdatedSnapshot: this.props.testResults.numUpdatedSnapshot ?? 0,
+        };
     }
 
     onModelClose() {
@@ -60,8 +72,12 @@ class Main extends Component {
     }
     render() {
         return (
-            <div className="main">
-                <Summary resultSummary={this.state.resultSummary} />
+            <div className={`main menu${this.props.menuState}`}>
+                <Summary
+                    key={this.props.testResults.id}
+                    id={this.props.testResults.id}
+                    resultSummary={this.getSummary()}
+                />
                 <Information info={this.props.information}></Information>
                 <GridHeader />
                 <GridTabView
@@ -82,5 +98,6 @@ Main.propTypes = {
     testResults: PropTypes.any.isRequired,
     expandResults: PropTypes.any,
     information: PropTypes.array,
+    menuState: PropTypes.string.isRequired,
 };
 export default Main;

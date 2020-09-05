@@ -2,71 +2,35 @@
 
 exports[`Tree click Should call function on tree node click 1`] = `
 <div
-  class="main"
+  class="main menuopen"
 >
   <div
-    class="summary"
+    class="cards"
   >
-    <span
-      class="dot green"
+    <div
+      class="card"
     >
-      <a
-        href="#Passed"
-      >
-        7
-      </a>
-      <span>
-        Passed
-      </span>
-    </span>
-    <span
-      class="dot orange"
+      <canvas
+        height="150"
+        width="300"
+      />
+    </div>
+    <div
+      class="card"
     >
-      <a
-        href="#Pending"
-      >
-        0
-      </a>
-      <span>
-        Pending
-      </span>
-    </span>
-    <span
-      class="dot red"
+      <canvas
+        height="150"
+        width="300"
+      />
+    </div>
+    <div
+      class="card"
     >
-      <a
-        href="#Failed"
-      >
-        2
-      </a>
-      <span>
-        Failed
-      </span>
-    </span>
-    <span
-      class="dot blue"
-    >
-      <a
-        href="#Total"
-      >
-        9
-      </a>
-      <span>
-        Total
-      </span>
-    </span>
-    <span
-      class="dot gray"
-    >
-      <a
-        href="#Todo"
-      >
-        0
-      </a>
-      <span>
-        Todo
-      </span>
-    </span>
+      <canvas
+        height="150"
+        width="300"
+      />
+    </div>
   </div>
   <div
     class="infoWrapper"

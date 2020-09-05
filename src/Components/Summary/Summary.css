@@ -1,3 +1,40 @@
-.summary{
-    text-align: center;
+.cards {
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+    max-width: 92%;
+}
+
+/* Screen larger than 600px? 2 column */
+@media (min-width: 600px) {
+    .menuclose > .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Screen larger than 1360px? 3 columns */
+@media (min-width: 1360px) {
+    .menuclose > .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .menuopen > .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: blue;
+}
+.gray {
+    background-color: gray;
 }

@@ -1,51 +1,5 @@
-.dot a {
-    text-decoration: none;
-    font-size: calc(10vmin);
-    color: white;
-    display: block;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-  }
-  
-  .dot span{
-    text-decoration: none;
-    font-size: calc(3vmin);
-    color: white;
-    display: block;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 80%;
-    left: 50%;
-  }
-  
-  .dot a:hover {
-    color: #f1f1f1;
-  }
-  .dot {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    display: inline-block;
-    padding: 25px 25px 25px 25px;
-    margin: 15px 15px 15px 15px;
+.card {
+    padding: 1rem;
     position: relative;
-  }
-  
-  .green{
-    background-color: green;
-  }
-  
-  .orange{
-    background-color: orange;
-  }
-  .red{
-    background-color: red;
-  }
-  .blue{
-    background-color: blue;
-  }
-  .gray{
-    background-color:gray;
-  }
+    max-width: 350px;
+}

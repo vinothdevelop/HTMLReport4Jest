@@ -1,28 +1,28 @@
 .column {
-  box-sizing: border-box;
+    box-sizing: border-box;
     float: left;
     padding: 10px;
-    height: 40px;
-  }
+    height: 50px;
+}
 
-  .testcase{
+.testcase {
     width: 40%;
 }
 
-.result{
-  width: 20%;
+.result {
+    width: 20%;
 }
 
-.time{
-  width: 20%;
+.time {
+    width: 15%;
 }
 
-.information{
-  width: 20%;
+.information {
+    width: 25%;
 }
 
-  .tableheader{
-    border-top-right-radius:8px;
+.tableheader {
+    border-top-right-radius: 8px;
     text-align: left;
     background: #333334;
     color: #fff;
@@ -30,15 +30,14 @@
     border-collapse: collapse;
     border-spacing: 0;
     overflow-wrap: break-word;
-    /* padding: 1rem; */
 }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
+
+/* Clear floats after the columns */
+.row:after {
+    content: '';
     display: table;
     clear: both;
-  }
-  .row{
-  box-sizing: border-box;
-  }
+}
+.row {
+    box-sizing: border-box;
+}

@@ -5,33 +5,88 @@ import './Summary.css';
 import SummaryElement from './SummaryElement';
 
 export default class Summary extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            testSummaryData: {
+                labels: ['Passed', 'Pending', 'Failed', 'Todo'],
+                datasets: [
+                    {
+                        data: [
+                            this.props.resultSummary.numPassedTests,
+                            this.props.resultSummary.numPendingTests,
+                            this.props.resultSummary.numFailedTests,
+                            this.props.resultSummary.numTodoTests,
+                        ],
+                        backgroundColor: ['green', 'orange', 'red', 'gray'],
+                        hoverBackgroundColor: [
+                            'green',
+                            'orange',
+                            'red',
+                            'gray',
+                        ],
+                    },
+                ],
+            },
+            testSuiteSummaryData: {
+                labels: ['Passed', 'Pending', 'Failed', 'Runtime Error'],
+                datasets: [
+                    {
+                        data: [
+                            this.props.resultSummary.numPassedTestSuites,
+                            this.props.resultSummary.numPendingTestSuites,
+                            this.props.resultSummary.numFailedTestSuites,
+                            this.props.resultSummary.numRuntimeErrorTestSuites,
+                        ],
+                        backgroundColor: ['green', 'orange', 'red', 'gray'],
+                        hoverBackgroundColor: [
+                            'green',
+                            'orange',
+                            'red',
+                            'gray',
+                        ],
+                    },
+                ],
+            },
+            snapshotSummaryData: {
+                labels: ['Matched', 'Updated', 'Unmatched', 'Added'],
+                datasets: [
+                    {
+                        data: [
+                            this.props.resultSummary.numMatchedSnapshot,
+                            this.props.resultSummary.numUpdatedSnapshot,
+                            this.props.resultSummary.numUnmatchedSnapshot,
+                            this.props.resultSummary.numAddedSnapshot,
+                        ],
+                        backgroundColor: ['green', 'orange', 'red', 'gray'],
+                        hoverBackgroundColor: [
+                            'green',
+                            'orange',
+                            'red',
+                            'gray',
+                        ],
+                    },
+                ],
+            },
+        };
+    }
     render() {
         return (
-            <div className="summary">
+            <div className="cards">
                 <SummaryElement
-                    Category="Passed"
-                    styleClass="green"
-                    data={this.props.resultSummary.numPassedTests}
+                    key={`${this.props.id}_1`}
+                    data={this.state.testSummaryData}
+                    title={'Test Summary'}
                 />
                 <SummaryElement
-                    Category="Pending"
-                    styleClass="orange"
-                    data={this.props.resultSummary.numPendingTests}
+                    key={`${this.props.id}_2`}
+                    data={this.state.testSuiteSummaryData}
+                    title={'Test Suite Summary'}
                 />
                 <SummaryElement
-                    Category="Failed"
-                    styleClass="red"
-                    data={this.props.resultSummary.numFailedTests}
-                />
-                <SummaryElement
-                    Category="Total"
-                    styleClass="blue"
-                    data={this.props.resultSummary.numTotalTests}
-                />
-                <SummaryElement
-                    Category="Todo"
-                    styleClass="gray"
-                    data={this.props.resultSummary.numTodoTests}
+                    key={`${this.props.id}_3`}
+                    data={this.state.snapshotSummaryData}
+                    title={'Snapshot Summary'}
                 />
             </div>
         );
@@ -39,4 +94,5 @@ export default class Summary extends Component {
 }
 Summary.propTypes = {
     resultSummary: PropTypes.any.isRequired,
+    id: PropTypes.any.isRequired,
 };

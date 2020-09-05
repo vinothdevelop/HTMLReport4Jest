@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should contain chart 1`] = `
+<div
+  class="card"
+>
+  <canvas
+    height="150"
+    width="300"
+  />
+</div>
+`;
+
+exports[`should contain no data found 1`] = `
+<div
+  class="card"
+>
+  <canvas
+    height="150"
+    width="300"
+  />
+</div>
+`;
