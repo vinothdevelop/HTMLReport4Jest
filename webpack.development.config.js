@@ -2,7 +2,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
 const publicUrl = './public';
-const data = require('./src/data/nested.json');
+const data = require('./src/data/sample.json');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
@@ -18,6 +18,7 @@ module.exports = merge.merge(common, {
         port: 9000,
         hot: true,
         open: true,
+        writeToDisk: true,
         overlay: {
             errors: true,
         },
