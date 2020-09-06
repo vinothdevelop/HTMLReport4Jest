@@ -90,6 +90,64 @@ exports[`Tree click Should call function on tree node click 1`] = `
       No
     </div>
   </div>
+  <div>
+    <p>
+      Filter:
+       
+      <label
+        class="checkboxLabel"
+      >
+        passed
+        <input
+          id="passed"
+          type="checkbox"
+          value="passed"
+        />
+        <span
+          class="checkboxSpan"
+        />
+      </label>
+      <label
+        class="checkboxLabel"
+      >
+        failed
+        <input
+          id="failed"
+          type="checkbox"
+          value="failed"
+        />
+        <span
+          class="checkboxSpan"
+        />
+      </label>
+      <label
+        class="checkboxLabel"
+      >
+        todo
+        <input
+          id="todo"
+          type="checkbox"
+          value="todo"
+        />
+        <span
+          class="checkboxSpan"
+        />
+      </label>
+      <label
+        class="checkboxLabel"
+      >
+        pending
+        <input
+          id="pending"
+          type="checkbox"
+          value="pending"
+        />
+        <span
+          class="checkboxSpan"
+        />
+      </label>
+    </p>
+  </div>
   <div
     class="row tableheader"
   >
@@ -118,6 +176,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
     class="tabs"
   >
     <input
+      class="togglerCheckBox"
       id="elem_id4"
       type="checkbox"
     />
@@ -163,6 +222,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
         class="tabs"
       >
         <input
+          class="togglerCheckBox"
           id="elem_id5"
           type="checkbox"
         />
@@ -208,6 +268,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
             class="tabs"
           >
             <input
+              class="togglerCheckBox"
               id="elem_id6"
               type="checkbox"
             />
@@ -310,6 +371,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                 class="tabs"
               >
                 <input
+                  class="togglerCheckBox"
                   id="elem_id9"
                   type="checkbox"
                 />
@@ -355,6 +417,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                     class="tabs"
                   >
                     <input
+                      class="togglerCheckBox"
                       id="elem_id10"
                       type="checkbox"
                     />
@@ -459,6 +522,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                 class="tabs"
               >
                 <input
+                  class="togglerCheckBox"
                   id="elem_id13"
                   type="checkbox"
                 />
@@ -504,6 +568,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                     class="tabs"
                   >
                     <input
+                      class="togglerCheckBox"
                       id="elem_id14"
                       type="checkbox"
                     />
@@ -665,6 +730,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                 class="tabs"
               >
                 <input
+                  class="togglerCheckBox"
                   id="elem_id19"
                   type="checkbox"
                 />
@@ -765,6 +831,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                     class="tabs"
                   >
                     <input
+                      class="togglerCheckBox"
                       id="elem_id22"
                       type="checkbox"
                     />
@@ -979,6 +1046,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                 class="tabs"
               >
                 <input
+                  class="togglerCheckBox"
                   id="elem_id29"
                   type="checkbox"
                 />
@@ -1024,6 +1092,7 @@ exports[`Tree click Should call function on tree node click 1`] = `
                     class="tabs"
                   >
                     <input
+                      class="togglerCheckBox"
                       id="elem_id30"
                       type="checkbox"
                     />

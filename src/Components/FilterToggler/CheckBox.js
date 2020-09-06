@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './CheckBox.css';
 export const CheckBox = props => {
     return (
-        <Fragment>
+        <label className="checkboxLabel">
+            {props.value}
             <input
                 key={props.value}
                 onChange={props.handleCheck}
@@ -12,10 +13,8 @@ export const CheckBox = props => {
                 value={props.value}
                 id={props.value}
             />
-            <label className="checkboxLable" htmlFor={props.value}>
-                {props.value}
-            </label>
-        </Fragment>
+            <span className="checkboxSpan"></span>
+        </label>
     );
 };
 CheckBox.propTypes = {

@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import React from 'react';
 import ErrorMessage from './ErrorMessage';
 import { render } from '@testing-library/react';
