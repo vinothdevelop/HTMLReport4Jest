@@ -10,17 +10,18 @@ class Status extends Component {
                         <svg
                             aria-label="passed"
                             fill="currentColor"
-                            viewBox="0 0 20 20"
+                            viewBox="0 0 16 16"
                             version="1.1"
                             width="1em"
                             height="1em"
                             role="img"
                             className="passed statusicon"
                         >
-                            <polygon
-                                id="Path-126"
-                                points="0 11 2 9 7 14 18 3 20 5 7 18"
-                            ></polygon>
+                            <path
+                                fillRule="evenodd"
+                                // eslint-disable-next-line max-len
+                                d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+                            ></path>
                         </svg>
                     </i>
                     {this.props.status}
@@ -33,18 +34,18 @@ class Status extends Component {
                         <svg
                             aria-label="failed"
                             className="failed statusicon"
-                            viewBox="0 0 20 20"
+                            viewBox="0 0 16 16"
                             version="1.1"
                             width="1em"
                             height="1em"
                             role="img"
                             fill="currentColor"
                         >
-                            <polygon
-                                id="Combined-Shape"
+                            <path
+                                fillRule="evenodd"
                                 // eslint-disable-next-line max-len
-                                points="10 8.58578644 2.92893219 1.51471863 1.51471863 2.92893219 8.58578644 10 1.51471863 17.0710678 2.92893219 18.4852814 10 11.4142136 17.0710678 18.4852814 18.4852814 17.0710678 11.4142136 10 18.4852814 2.92893219 17.0710678 1.51471863 10 8.58578644"
-                            ></polygon>
+                                d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"
+                            ></path>
                         </svg>
                     </i>
                     {this.props.status}
@@ -78,18 +79,16 @@ class Status extends Component {
                     <i>
                         <svg
                             className="todo statusicon"
-                            viewBox="0 0 20 20"
+                            viewBox="0 0 16 16"
                             version="1.1"
                             width="1em"
                             height="1em"
                             aria-hidden="true"
                             fill="currentColor"
                         >
-                            <title>pencil</title>
                             <path
-                                // eslint-disable-next-line max-len
-                                d="M12.2928932,3.70710678 L0,16 L0,20 L4,20 L16.2928932,7.70710678 L12.2928932,3.70710678 Z M13.7071068,2.29289322 L16,0 L20,4 L17.7071068,6.29289322 L13.7071068,2.29289322 Z"
-                                id="Combined-Shape"
+                                fillRule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8z"
                             ></path>
                         </svg>
                     </i>

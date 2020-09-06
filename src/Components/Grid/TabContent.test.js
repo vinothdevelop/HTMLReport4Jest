@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import React from 'react';
 import TabContent from './TabContent';
 import { render, fireEvent } from '@testing-library/react';
