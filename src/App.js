@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Main from './Components/Main/Main';
 let data;
+const statusList = [];
 class App extends Component {
     constructor(props) {
         data = window.resultData;
@@ -13,14 +14,19 @@ class App extends Component {
         this.state = {
             menuState: 'close',
             testResults: data,
-            treeViewData: this.formatTreeViewData(data),
+            treeViewData: this.formatTreeViewData(data, []),
             information: this.getInformation(data),
         };
         this.onTreeNodeClick = this.onTreeNodeClick.bind(this);
         this.state.gridData = this.state.treeViewData;
         this.menuStateChange = this.menuStateChange.bind(this);
+        this.onStatusChecked = this.onStatusChecked.bind(this);
     }
-    formatTreeViewData(testResults) {
+    getStatusList() {
+        return statusList;
+    }
+
+    formatTreeViewData(testResults, statusFilter) {
         const testResultData = {};
         Object.assign(testResultData, testResults);
         let treeViewData = [];
@@ -40,13 +46,14 @@ class App extends Component {
                 testResultData.testResults,
                 [],
                 id,
+                statusFilter,
             );
         }
         treeViewData = rootElement;
         return treeViewData;
     }
 
-    parseTreeData(testResults, parentArray, id) {
+    parseTreeData(testResults, parentArray, id, statusFilter) {
         let subArray = [];
         testResults.forEach(element => {
             if (element.testFilePath || element.fullName) {
@@ -70,15 +77,30 @@ class App extends Component {
                         element.testResults,
                         [],
                         id,
+                        statusFilter,
                     );
-                    parentArray.push(nodeValue);
+                    if (
+                        statusFilter.length === 0 ||
+                        nodeValue.children.length > 0
+                    ) {
+                        parentArray.push(nodeValue);
+                    }
                 } else if (element.ancestorTitles) {
-                    [subArray, id] = this.parseAncestor(
-                        element.ancestorTitles,
-                        element,
-                        subArray,
-                        id,
-                    );
+                    if (statusList.indexOf(element.status) < 0) {
+                        statusList.push(element.status);
+                    }
+                    if (
+                        statusFilter.length === 0 ||
+                        statusFilter.indexOf(element.status) >= 0
+                    ) {
+                        [subArray, id] = this.parseAncestor(
+                            element.ancestorTitles,
+                            element,
+                            subArray,
+                            id,
+                            statusFilter,
+                        );
+                    }
                 }
             }
         });
@@ -88,7 +110,7 @@ class App extends Component {
         return [parentArray, id];
     }
 
-    parseAncestor(ancestors, testCase, parentArray, id) {
+    parseAncestor(ancestors, testCase, parentArray, id, statusFilter) {
         const ancestorCopy = [...ancestors];
         if (ancestors.length > 0) {
             const itemTitle = ancestors[0];
@@ -113,6 +135,7 @@ class App extends Component {
                     testCase,
                     [],
                     id,
+                    statusFilter,
                 );
                 parentArray.push(nodeValue);
             } else {
@@ -139,6 +162,7 @@ class App extends Component {
                     testCase,
                     parentArray[elementIndex].children,
                     id,
+                    statusFilter,
                 );
             }
         } else {
@@ -197,6 +221,15 @@ class App extends Component {
         return information;
     }
 
+    onStatusChecked = checkedStatuses => {
+        this.setState({
+            gridData: this.formatTreeViewData(
+                this.state.testResults,
+                checkedStatuses,
+            ),
+        });
+    };
+
     render() {
         return (
             <div className="App">
@@ -219,6 +252,8 @@ class App extends Component {
                         this.state.testResults?.reporterOptions?.expandResults
                     }
                     information={this.state.information}
+                    statusList={this.getStatusList()}
+                    onStatusChecked={this.onStatusChecked}
                 />
             </div>
         );

@@ -6,6 +6,7 @@ import GridTabView from '../Grid/GridTabView';
 import Modal from './../Modal/Modal';
 import PropTypes from 'prop-types';
 import Information from '../Information/Information';
+import FilterToggler from '../FilterToggler/FilterToggler';
 
 class Main extends Component {
     constructor(props) {
@@ -63,6 +64,10 @@ class Main extends Component {
             <div className="main">
                 <Summary resultSummary={this.state.resultSummary} />
                 <Information info={this.props.information}></Information>
+                <FilterToggler
+                    statusList={this.props.statusList}
+                    onStatusChecked={this.props.onStatusChecked}
+                />
                 <GridHeader />
                 <GridTabView
                     expandResults={this.props.expandResults}
@@ -82,5 +87,7 @@ Main.propTypes = {
     testResults: PropTypes.any.isRequired,
     expandResults: PropTypes.any,
     information: PropTypes.array,
+    statusList: PropTypes.array,
+    onStatusChecked: PropTypes.func.isRequired,
 };
 export default Main;

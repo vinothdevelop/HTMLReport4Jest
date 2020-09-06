@@ -101,6 +101,6 @@ class Status extends Component {
     }
 }
 Status.propTypes = {
-    status: PropTypes.string.isRequired,
+    status: PropTypes.string,
 };
 export default Status;
