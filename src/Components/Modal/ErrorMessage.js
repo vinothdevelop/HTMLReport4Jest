@@ -19,12 +19,14 @@ export default class ErrorMessage extends React.Component {
 
     createMarkup(text) {
         let result = '';
-        if (text && text.length > 0) {
+        if (Array.isArray(text) && text.length > 0) {
             for (let i = 0; i < text.length; i++) {
                 result = result.concat(
                     convert.toHtml(this.escapeHtml(text[i])),
                 );
             }
+        } else if (!Array.isArray(text) && text && text.length > 0) {
+            result = result.concat(convert.toHtml(this.escapeHtml(text)));
         }
         return { __html: result };
     }
