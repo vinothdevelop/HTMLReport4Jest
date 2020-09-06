@@ -20,3 +20,24 @@ exports[`Should return html message 1`] = `
   </div>
 </div>
 `;
+
+exports[`Should return html message as string 1`] = `
+<div>
+  <div>
+    <pre
+      class="errorContent"
+    >
+      <span
+        style="color:#000"
+      >
+        black
+        <span
+          style="color:#AAA"
+        >
+          white
+        </span>
+      </span>
+    </pre>
+  </div>
+</div>
+`;
