@@ -1,0 +1,51 @@
+.checkboxLabel {
+    text-transform: capitalize;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: 'inline';
+}
+
+/* Hide the default checkbox */
+.checkboxLabel input[type='checkbox'] {
+    visibility: hidden;
+}
+
+/* creating a custom checkbox based 
+    on demand */
+.checkboxSpan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: white;
+    border: solid black;
+    border-width: 1px 1px 1px 1px;
+}
+
+/* specify the background color to be 
+shown when checkbox is checked */
+.checkboxLabel input:checked ~ .checkboxSpan {
+    background-color: #333334;
+}
+
+/* checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.checkboxSpan:after {
+    position: absolute;
+    display: none;
+}
+
+/* styling the checkmark using webkit */
+/* creating a square to be the sign of 
+    checkmark */
+.checkboxLabel .checkboxSpan:after {
+    left: 6px;
+    bottom: 5px;
+    width: 6px;
+    height: 6px;
+    border: solid black;
+    border-width: 4px 4px 4px 4px;
+}

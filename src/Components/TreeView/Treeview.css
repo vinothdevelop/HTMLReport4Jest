@@ -1,12 +1,13 @@
- /* Remove default bullets */
- ul, .treelist {
+/* Remove default bullets */
+ul.nested,
+.treelist {
     list-style-type: none;
     color: white;
-  }
-  
-  /* Remove margins and padding from the parent ul */
-  .treelist {
+}
+
+/* Remove margins and padding from the parent ul */
+.treelist {
     margin: 0;
     padding: 0;
     text-align: left;
-  }
+}

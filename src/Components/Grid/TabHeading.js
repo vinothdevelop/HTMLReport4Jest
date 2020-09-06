@@ -29,6 +29,7 @@ class TabHeading extends Component {
                     id={`elem_${this.props.item.id}`}
                     checked={this.state.isChecked}
                     onChange={this.toggleChange}
+                    className="togglerCheckBox"
                 />
                 <label
                     className="tab-label"

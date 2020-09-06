@@ -73,3 +73,20 @@ describe('Tree click', () => {
         expect(container.querySelector('.main')).toMatchSnapshot();
     });
 });
+
+describe('Status filter', () => {
+    test('Should have checkboxes', () => {
+        window.resultData = sampleData;
+        const { container } = render(<App></App>);
+        expect(container.querySelectorAll('.checkboxLabel').length).toEqual(4);
+    });
+    test('Should filter on checkbox click', () => {
+        window.resultData = sampleData;
+        const { container } = render(<App></App>);
+        const statusCheckboxes = container.querySelectorAll('.checkboxLabel');
+        fireEvent.click(statusCheckboxes[3]);
+        expect(container.querySelectorAll('.tab-content').length).toEqual(2);
+        fireEvent.click(statusCheckboxes[3]);
+        expect(container.querySelectorAll('.tab-content').length).toEqual(40);
+    });
+});
