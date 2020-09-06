@@ -21,3 +21,14 @@ test('Should return html message', () => {
     );
     expect(container).toMatchSnapshot();
 });
+
+test('Should return html message as string', () => {
+    const messages = '\x1b[30mblack\x1b[37mwhite';
+    const { container } = render(
+        <ErrorMessage messages={messages}></ErrorMessage>,
+    );
+    expect(container.firstChild.firstChild.firstChild.textContent).toEqual(
+        'blackwhite',
+    );
+    expect(container).toMatchSnapshot();
+});
