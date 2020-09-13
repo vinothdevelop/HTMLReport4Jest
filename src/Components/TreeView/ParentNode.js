@@ -6,8 +6,6 @@ export default class ParentNode extends Component {
         super(props);
         this.state = {
             item: this.props.item,
-            caretClass: this.props.expandMenuItems ? 'caret-down' : '',
-            nestedClass: this.props.expandMenuItems ? 'active' : '',
         };
     }
     onTreeCaretClick(e) {
@@ -17,11 +15,19 @@ export default class ParentNode extends Component {
         e.target.classList.toggle('caret-down');
     }
 
+    getCaretClassName() {
+        return this.props.expandMenuItems ? 'caret-down' : '';
+    }
+
+    getNestedClassName() {
+        return this.props.expandMenuItems ? 'active' : '';
+    }
+
     render() {
         return (
             <li>
                 <span
-                    className={`caret ${this.state.caretClass}`}
+                    className={`caret ${this.getCaretClassName()}`}
                     onClick={event => {
                         return this.onTreeCaretClick(event);
                     }}
@@ -34,7 +40,7 @@ export default class ParentNode extends Component {
                 >
                     {this.props.item.title}
                 </span>
-                <ul className={`nested ${this.state.nestedClass}`}>
+                <ul className={`nested ${this.getNestedClassName()}`}>
                     <Treenode
                         expandMenuItems={this.props.expandMenuItems}
                         treeViewData={this.props.item.children}

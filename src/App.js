@@ -21,6 +21,7 @@ class App extends Component {
         this.state.gridData = this.state.treeViewData;
         this.menuStateChange = this.menuStateChange.bind(this);
         this.onStatusChecked = this.onStatusChecked.bind(this);
+        this.state.toggleState = this.state.testResults?.reporterOptions?.expandResults;
     }
     getStatusList() {
         return statusList;
@@ -230,6 +231,10 @@ class App extends Component {
         });
     };
 
+    onExpandToggle = toggleState => {
+        this.setState({ toggleState: toggleState });
+    };
+
     render() {
         return (
             <div className="App">
@@ -248,12 +253,11 @@ class App extends Component {
                 />
                 <Main
                     testResults={this.state.gridData}
-                    expandResults={
-                        this.state.testResults?.reporterOptions?.expandResults
-                    }
+                    expandResults={this.state.toggleState}
                     information={this.state.information}
                     statusList={this.getStatusList()}
                     onStatusChecked={this.onStatusChecked}
+                    onExpandToggle={this.onExpandToggle}
                 />
             </div>
         );

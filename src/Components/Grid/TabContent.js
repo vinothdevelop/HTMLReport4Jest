@@ -19,6 +19,7 @@ class TabContent extends Component {
                     expandResults={this.props.expandResults}
                     item={this.props.item}
                     onShowModel={this.props.onShowModel}
+                    key={`${this.props.item.id}${this.props.expandResults}`}
                 />
             );
         } else {
