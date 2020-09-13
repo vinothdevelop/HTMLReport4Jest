@@ -7,6 +7,7 @@ import Modal from './../Modal/Modal';
 import PropTypes from 'prop-types';
 import Information from '../Information/Information';
 import FilterToggler from '../FilterToggler/FilterToggler';
+import { ToggleButton } from '../ToggleButton/ToggleButton';
 
 class Main extends Component {
     constructor(props) {
@@ -59,15 +60,23 @@ class Main extends Component {
         this.setState({ showModel: true });
         this.setState({ modelData: item });
     }
+
     render() {
         return (
             <div className="main">
                 <Summary resultSummary={this.state.resultSummary} />
                 <Information info={this.props.information}></Information>
-                <FilterToggler
-                    statusList={this.props.statusList}
-                    onStatusChecked={this.props.onStatusChecked}
-                />
+                <div className="togglesWrapper">
+                    <FilterToggler
+                        statusList={this.props.statusList}
+                        onStatusChecked={this.props.onStatusChecked}
+                    />
+                    <ToggleButton
+                        checkedText="Expand All"
+                        onToggle={this.props.onExpandToggle}
+                        toggleState={this.props.expandResults}
+                    />
+                </div>
                 <GridHeader />
                 <GridTabView
                     expandResults={this.props.expandResults}
@@ -89,5 +98,6 @@ Main.propTypes = {
     information: PropTypes.array,
     statusList: PropTypes.array,
     onStatusChecked: PropTypes.func.isRequired,
+    onExpandToggle: PropTypes.func.isRequired,
 };
 export default Main;

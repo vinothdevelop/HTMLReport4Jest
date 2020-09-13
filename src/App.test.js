@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import React from 'react';
 import App from './App';
 import { render, fireEvent } from '@testing-library/react';
@@ -69,8 +68,11 @@ describe('Tree click', () => {
             container.querySelector('.sidenav').classList.contains('open'),
         ).toEqual(true);
         const elem = container.querySelectorAll('.nodeTitle');
+        expect(container.querySelectorAll('.tabs')).toHaveLength(12);
+        expect(container.querySelectorAll('.tab-content')).toHaveLength(12);
         fireEvent.click(elem[1]);
-        expect(container.querySelector('.main')).toMatchSnapshot();
+        expect(container.querySelectorAll('.tabs')).toHaveLength(11);
+        expect(container.querySelectorAll('.tab-content')).toHaveLength(11);
     });
 });
 
@@ -88,5 +90,18 @@ describe('Status filter', () => {
         expect(container.querySelectorAll('.tab-content').length).toEqual(2);
         fireEvent.click(statusCheckboxes[3]);
         expect(container.querySelectorAll('.tab-content').length).toEqual(40);
+    });
+});
+describe('Toggle Button', () => {
+    test('Should fire event', () => {
+        window.resultData = data;
+        const { container } = render(<App></App>);
+        expect(
+            container.querySelectorAll('.togglerCheckBox:checked'),
+        ).toHaveLength(0);
+        fireEvent.click(container.querySelector('#toggleButton'));
+        expect(
+            container.querySelectorAll('.togglerCheckBox:checked'),
+        ).toHaveLength(12);
     });
 });

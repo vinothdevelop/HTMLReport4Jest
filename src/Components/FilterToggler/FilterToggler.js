@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckBox from './CheckBox';
 import PropTypes from 'prop-types';
+import './FilterToggler.css';
 export default class FilterToggler extends React.Component {
     constructor(props) {
         super(props);
@@ -35,7 +36,7 @@ export default class FilterToggler extends React.Component {
     render() {
         if (this.props.statusList && this.props.statusList.length > 0) {
             return (
-                <div>
+                <div className="filterWrapper">
                     <p>
                         Filter:{' '}
                         {this.state.statusList.map(status => {
