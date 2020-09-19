@@ -44,5 +44,5 @@ export default class ErrorMessage extends React.Component {
     }
 }
 ErrorMessage.propTypes = {
-    messages: PropTypes.array,
+    messages: PropTypes.any,
 };
