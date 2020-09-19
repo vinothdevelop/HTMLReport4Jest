@@ -28,7 +28,7 @@
     "dependencies": {},
     "scripts": {
         "start": "webpack-dev-server --config webpack.development.config.js --open",
-        "build": "webpack --config webpack.build.config.js --mode production",
+        "build": "webpack --config webpack.build.config.js",
         "test": "jest --silent",
         "lint": "eslint ."
     },
@@ -81,7 +81,7 @@
         "react-dom": "^16.13.1",
         "semantic-release": "^17.1.1",
         "style-loader": "^1.2.1",
-        "webpack": "^4.43.0",
+        "webpack": "^5.0.0-beta.32",
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.0.9"

@@ -6,7 +6,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = merge.merge(common, {
     mode: 'production',
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({}),
         new InlineChunkHtmlPlugin(HtmlWebPackPlugin, [/.*/]),
     ],
 });
