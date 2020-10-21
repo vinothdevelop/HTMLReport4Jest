@@ -76,7 +76,7 @@
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.1.0",
         "prettier": "^2.0.5",
-        "react": "^16.13.1",
+        "react": "^17.0.0",
         "react-dev-utils": "^10.2.1",
         "react-dom": "^16.13.1",
         "semantic-release": "^17.1.1",
