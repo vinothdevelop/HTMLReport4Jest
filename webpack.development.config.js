@@ -8,7 +8,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 module.exports = merge.merge(common, {
     output: {
-        publicPath: 'public/',
+        publicPath: '/',
     },
     mode: 'development',
     devtool: 'inline-source-map',

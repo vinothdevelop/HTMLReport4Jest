@@ -27,7 +27,7 @@
     "homepage": "https://vinothdevelop.github.io/HTMLReport4Jest/result.html",
     "dependencies": {},
     "scripts": {
-        "start": "webpack-dev-server --config webpack.development.config.js --open",
+        "start": "webpack serve --config webpack.development.config.js",
         "build": "webpack --config webpack.build.config.js",
         "test": "jest --silent",
         "lint": "eslint ."
