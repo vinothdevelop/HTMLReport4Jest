@@ -3,6 +3,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const publicUrl = './public';
 module.exports = {
+    output: {
+        path: path.resolve(process.cwd(), 'dist'),
+        publicPath: path.resolve(process.cwd(), 'dist'),
+    },
     module: {
         rules: [
             {
