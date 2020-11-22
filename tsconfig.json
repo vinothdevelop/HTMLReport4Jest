@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "experimentalDecorators": true,
+        "types": ["jest"],
+        "typeRoots": ["../node_modules/@types"]
+    },
+    "exclude": ["node_modules"]
+}
