@@ -2,7 +2,7 @@ module.exports = {
     reporters: [
         'default',
         [
-            '<rootDir>/index.js',
+            '<rootDir>/dist/index.js',
             {
                 title: 'Test Report',
                 expandResults: true,

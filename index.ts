@@ -1,5 +1,5 @@
-const path = require('path');
-const fs = require('fs');
+import * as path from 'path';
+import * as fs from 'fs';
 import { AggregatedResult, TestResult } from '@jest/test-result';
 import { Circus, Config } from '@jest/types';
 import { Test, Context, ReporterOnStartOptions } from '@jest/reporters';
@@ -36,11 +36,10 @@ class HTMLReport4Jest {
     }
 
     onRunComplete(context: Set<Context>, result: AggregatedResult) {
-        console.log(context);
         result.endTime = Date.now();
         result.reporterOptions = { ...this._options };
         const data = JSON.stringify(result);
-        const templatePath = path.resolve(__dirname, './dist/index.html');
+        const templatePath = path.resolve(__dirname, './index.html');
         const htmlTemplate = fs.readFileSync(templatePath, 'utf-8');
         result.reporterOptions.title = result.reporterOptions.title
             ? result.reporterOptions.title

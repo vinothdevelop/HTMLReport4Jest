@@ -3,9 +3,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const publicUrl = './public';
 module.exports = {
-    entry: {
-        reporter: './index.ts',
-        main: './src/index.js',
+    output: {
+        path: path.resolve(process.cwd(), 'dist'),
     },
     module: {
         rules: [
@@ -34,19 +33,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
-            {
-                test: /\.(ts|tsx)?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
         ],
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
-    output: {
-        filename: '[name].js',
-        path: __dirname + '/dist',
     },
     plugins: [
         new HtmlWebPackPlugin({
