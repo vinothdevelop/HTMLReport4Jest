@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "ES5",
+        "allowJs": true,
+        "experimentalDecorators": true,
+        "typeRoots": ["../node_modules/@types"],
+        "sourceMap": true,
+        "declaration": true,
+        "declarationDir": "./dist/"
+    },
+    "exclude": ["node_modules"],
+    "files": ["index.ts"],
+    "include": ["index.ts"]
+}

@@ -5,7 +5,6 @@ const publicUrl = './public';
 module.exports = {
     output: {
         path: path.resolve(process.cwd(), 'dist'),
-        publicPath: path.resolve(process.cwd(), 'dist'),
     },
     module: {
         rules: [
