@@ -12,9 +12,10 @@ export default class SummaryElement extends Component {
             </span>
         );
     }
+
+    static propTypes = {
+        Category: PropTypes.string.isRequired,
+        styleClass: PropTypes.string.isRequired,
+        data: PropTypes.number.isRequired,
+    };
 }
-SummaryElement.propTypes = {
-    Category: PropTypes.string.isRequired,
-    styleClass: PropTypes.string.isRequired,
-    data: PropTypes.number.isRequired,
-};

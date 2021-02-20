@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './ToggleButton.css';
 import PropTypes from 'prop-types';
-export const ToggleButton = ({ checkedText, onToggle, toggleState }) => {
-    const [toggle, setToggle] = useState(toggleState ?? false);
+export const ToggleButton = ({ checkedText, onToggle, isToggled }) => {
+    const [toggle, setToggle] = useState(isToggled ?? false);
     function toggleButton() {
+        // eslint-disable-next-line no-negated-condition
         if (!toggle) {
             setToggle(true);
             onToggle(true);
@@ -12,6 +13,7 @@ export const ToggleButton = ({ checkedText, onToggle, toggleState }) => {
             onToggle(false);
         }
     }
+
     return (
         <span className="checkbox-switch">
             <input
@@ -27,9 +29,10 @@ export const ToggleButton = ({ checkedText, onToggle, toggleState }) => {
         </span>
     );
 };
+
 ToggleButton.propTypes = {
     onToggle: PropTypes.func.isRequired,
     checkedText: PropTypes.string,
-    toggleState: PropTypes.bool,
+    isToggled: PropTypes.bool,
 };
 export default ToggleButton;

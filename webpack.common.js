@@ -2,18 +2,13 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const publicUrl = './public';
+const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
     output: {
         path: path.resolve(process.cwd(), 'dist'),
     },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader',
-            },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
@@ -44,5 +39,6 @@ module.exports = {
         new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
             PUBLIC_URL: publicUrl,
         }),
+        new ESLintPlugin({}),
     ],
 };

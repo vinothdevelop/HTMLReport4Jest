@@ -3,15 +3,15 @@ import React from 'react';
 import Modal from './Modal';
 import { render, screen, fireEvent } from '@testing-library/react';
 import DateUtilities from './../../Utilities/DateUtilities';
-test('Return null when Modal is not set to show', () => {
+test('Return null when Modal is not set to isDisplayed', () => {
     const { container } = render(
-        <Modal show={false} onClose={function () {}} modelData={{}}></Modal>,
+        <Modal isDisplayed={false} modelData={{}} onClose={() => {}} />,
     );
     expect(container.firstChild).toBeNull();
 });
 test('Return empty information when value not set', () => {
     const { container } = render(
-        <Modal show={true} onClose={function () {}} modelData={{}}></Modal>,
+        <Modal isDisplayed modelData={{}} onClose={() => {}} />,
     );
     expect(container.querySelector('.tabcontent').textContent).toEqual('');
 });
@@ -23,7 +23,7 @@ test('Should contain formated time', () => {
         failureMessages: [],
     };
     const { container } = render(
-        <Modal show={true} onClose={function () {}} modelData={data}></Modal>,
+        <Modal isDisplayed modelData={data} onClose={() => {}} />,
     );
     expect(
         container.firstChild.firstChild.textContent.indexOf(
@@ -38,9 +38,7 @@ test('Should hide error message when no error message passed', () => {
         status: 'passed',
         failureMessages: [],
     };
-    render(
-        <Modal show={true} onClose={function () {}} modelData={data}></Modal>,
-    );
+    render(<Modal isDisplayed modelData={data} onClose={() => {}} />);
     expect(screen.getByText('Error Message').style.visibility).toEqual(
         'hidden',
     );
@@ -52,9 +50,7 @@ test('Should show error message when error message passed', () => {
         status: 'passed',
         failureMessages: ['\x1b[30mblack\x1b[37mwhite'],
     };
-    render(
-        <Modal show={true} onClose={function () {}} modelData={data}></Modal>,
-    );
+    render(<Modal isDisplayed modelData={data} onClose={() => {}} />);
     expect(screen.getByText('Error Message').style.visibility).toEqual(
         'visible',
     );
@@ -69,7 +65,7 @@ test('Should call funtion on close click', () => {
         failureMessages: ['\x1b[30mblack\x1b[37mwhite'],
     };
     const { container } = render(
-        <Modal show={true} onClose={mockCallback} modelData={data}></Modal>,
+        <Modal isDisplayed modelData={data} onClose={mockCallback} />,
     );
     fireEvent.click(container.querySelector('.modal-close'));
     expect(mockCallback.mock.calls.length).toBe(1);
@@ -83,7 +79,7 @@ test('Should be able to change tab click', () => {
         status: 'passed',
         failureMessages: ['\x1b[30mblack\x1b[37mwhite'],
     };
-    render(<Modal show={true} onClose={mockCallback} modelData={data}></Modal>);
+    render(<Modal isDisplayed modelData={data} onClose={mockCallback} />);
     fireEvent.click(screen.getByText('Error Message'));
     expect(screen.getByText('Error Message').classList).toContain('active');
     expect(screen.getByText('Information').classList).toContain('inactive');

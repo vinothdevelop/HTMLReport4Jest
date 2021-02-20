@@ -1,11 +1,16 @@
 {
     "extends": [
         "eslint:recommended",
+        "plugin:jsx-a11y/recommended",
         "plugin:react/recommended",
         "plugin:prettier/recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:security/recommended",
+        "plugin:react-hooks/recommended",
+        "xo",
+        "xo-react",
         "prettier",
-        "prettier/react",
-        "plugin:react-hooks/recommended"
+        "prettier/react"
     ],
     "parser": "babel-eslint",
     "rules": {
@@ -41,13 +46,25 @@
         "no-multiple-empty-lines": "error",
         "prefer-const": "error",
         "no-use-before-define": "error",
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "comma-dangle": "off",
+        "indent": "off",
+        "object-curly-spacing": "off",
+        "no-tabs": ["error", { "allowIndentationTabs": true }],
+        "operator-linebreak": "off",
+        "no-else-return": "off",
+        "react/no-array-index-key": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "sonarjs/no-duplicate-string": "off",
+        "jsx-a11y/no-static-element-interactions": "off"
     },
     "plugins": ["prettier"],
     "parserOptions": {
-        "sourceType": "module",
-        "allowImportExportEverywhere": false,
-        "codeFrame": true
+        "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+        "sourceType": "module", // Allows for the use of imports
+        "ecmaFeatures": {
+            "jsx": true // Allows for the parsing of JSX
+        }
     },
     "env": {
         "browser": true,

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { Component, Fragment } from 'react';
 
 import './Treenode.css';
@@ -10,25 +9,30 @@ import PropTypes from 'prop-types';
 export default class Treenode extends Component {
     render() {
         return (
-            <Fragment>
+            <>
                 {this.props.treeViewData.map((item, index) => {
                     return item.children && item.children.length > 0 ? (
                         <ParentNode
-                            expandMenuItems={this.props.expandMenuItems}
-                            item={item}
                             key={index}
+                            isMenuExpanded={this.props.isMenuExpanded}
+                            item={item}
                             onTreeNodeClick={this.props.onTreeNodeClick}
                         />
-                    ) :
-                        (<LeafNode item={item} key={index} /> 
-                        );
+                    ) : (
+                        <LeafNode key={index} item={item} />
+                    );
                 })}
-            </Fragment>
+            </>
         );
     }
+
+    static propTypes = {
+        onTreeNodeClick: PropTypes.func.isRequired,
+        treeViewData: PropTypes.any.isRequired,
+        isMenuExpanded: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        isMenuExpanded: false,
+    };
 }
-Treenode.propTypes = {
-    onTreeNodeClick: PropTypes.func.isRequired,
-    treeViewData: PropTypes.any.isRequired,
-    expandMenuItems: PropTypes.bool,
-};

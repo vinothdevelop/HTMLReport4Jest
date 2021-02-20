@@ -12,6 +12,7 @@ import { ToggleButton } from '../ToggleButton/ToggleButton';
 class Main extends Component {
     constructor(props) {
         super(props);
+        // eslint-disable-next-line react/state-in-constructor
         this.state = {
             resultSummary: {
                 numFailedTests: this.props.testResults.numFailedTests ?? 0,
@@ -20,7 +21,7 @@ class Main extends Component {
                 numPendingTests: this.props.testResults.numPendingTests ?? 0,
                 numTodoTests: this.props.testResults.numTodoTests ?? 0,
             },
-            showModel: false,
+            isDisplayed: false,
         };
         this.onShowModel = this.onShowModel.bind(this);
         this.onModelClose = this.onModelClose.bind(this);
@@ -39,6 +40,7 @@ class Main extends Component {
             prevProps.testResults.numTodoTests !==
                 this.props.testResults.numTodoTests
         ) {
+            // eslint-disable-next-line react/no-did-update-set-state
             this.setState({
                 resultSummary: {
                     numFailedTests: this.props.testResults.numFailedTests ?? 0,
@@ -53,11 +55,11 @@ class Main extends Component {
     }
 
     onModelClose() {
-        this.setState({ showModel: false });
+        this.setState({ isDisplayed: false });
     }
 
     onShowModel(item) {
-        this.setState({ showModel: true });
+        this.setState({ isDisplayed: true });
         this.setState({ modelData: item });
     }
 
@@ -65,7 +67,7 @@ class Main extends Component {
         return (
             <div className="main">
                 <Summary resultSummary={this.state.resultSummary} />
-                <Information info={this.props.information}></Information>
+                <Information info={this.props.information} />
                 <div className="togglesWrapper">
                     <FilterToggler
                         statusList={this.props.statusList}
@@ -73,31 +75,38 @@ class Main extends Component {
                     />
                     <ToggleButton
                         checkedText="Expand All"
+                        isToggled={this.props.isResultExpanded}
                         onToggle={this.props.onExpandToggle}
-                        toggleState={this.props.expandResults}
                     />
                 </div>
                 <GridHeader />
                 <GridTabView
-                    expandResults={this.props.expandResults}
+                    isResultExpanded={this.props.isResultExpanded}
                     testResults={this.props.testResults.children}
                     onShowModel={this.onShowModel}
                 />
                 <Modal
-                    show={this.state.showModel}
-                    onClose={this.onModelClose}
+                    isDisplayed={this.state.isDisplayed}
                     modelData={this.state.modelData}
-                ></Modal>
+                    onClose={this.onModelClose}
+                />
             </div>
         );
     }
+
+    static propTypes = {
+        testResults: PropTypes.any.isRequired,
+        isResultExpanded: PropTypes.bool,
+        information: PropTypes.array,
+        statusList: PropTypes.array,
+        onStatusChecked: PropTypes.func.isRequired,
+        onExpandToggle: PropTypes.func.isRequired,
+    };
+
+    static defaultProps = {
+        isResultExpanded: false,
+        information: [],
+        statusList: [],
+    };
 }
-Main.propTypes = {
-    testResults: PropTypes.any.isRequired,
-    expandResults: PropTypes.any,
-    information: PropTypes.array,
-    statusList: PropTypes.array,
-    onStatusChecked: PropTypes.func.isRequired,
-    onExpandToggle: PropTypes.func.isRequired,
-};
 export default Main;

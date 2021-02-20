@@ -10,7 +10,7 @@ test('Should contain formated time', () => {
         failureMessages: [],
     };
     const { container } = render(
-        <TabContent onShowModel={function () {}} item={data}></TabContent>,
+        <TabContent item={data} onShowModel={() => {}} />,
     );
     expect(
         container.textContent.indexOf(
@@ -27,7 +27,7 @@ test('Should call function on icon click', () => {
         failureMessages: [],
     };
     const { container } = render(
-        <TabContent onShowModel={FakeFun} item={data}></TabContent>,
+        <TabContent item={data} onShowModel={FakeFun} />,
     );
     fireEvent.click(container.lastChild.firstChild);
     expect(FakeFun).toHaveBeenCalledTimes(1);

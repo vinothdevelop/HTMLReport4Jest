@@ -36,7 +36,8 @@ export default class Summary extends Component {
             </div>
         );
     }
+
+    static propTypes = {
+        resultSummary: PropTypes.any.isRequired,
+    };
 }
-Summary.propTypes = {
-    resultSummary: PropTypes.any.isRequired,
-};

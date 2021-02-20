@@ -11,6 +11,7 @@ class App extends Component {
     constructor(props) {
         data = window.resultData;
         super(props);
+        // eslint-disable-next-line react/state-in-constructor
         this.state = {
             menuState: 'close',
             testResults: data,
@@ -21,8 +22,10 @@ class App extends Component {
         this.state.gridData = this.state.treeViewData;
         this.menuStateChange = this.menuStateChange.bind(this);
         this.onStatusChecked = this.onStatusChecked.bind(this);
-        this.state.toggleState = this.state.testResults?.reporterOptions?.expandResults;
+        this.state.isResultExpanded = this.state.testResults?.reporterOptions?.expandResults;
+        this.onExpandToggle = this.onExpandToggle.bind(this);
     }
+
     getStatusList() {
         return statusList;
     }
@@ -50,10 +53,12 @@ class App extends Component {
                 statusFilter,
             );
         }
+
         treeViewData = rootElement;
         return treeViewData;
     }
 
+    // eslint-disable-next-line sonarjs/cognitive-complexity
     parseTreeData(testResults, parentArray, id, statusFilter) {
         let subArray = [];
         testResults.forEach(element => {
@@ -90,6 +95,7 @@ class App extends Component {
                     if (statusList.indexOf(element.status) < 0) {
                         statusList.push(element.status);
                     }
+
                     if (
                         statusFilter.length === 0 ||
                         statusFilter.indexOf(element.status) >= 0
@@ -108,9 +114,11 @@ class App extends Component {
         if (subArray.length > 0) {
             parentArray = subArray;
         }
+
         return [parentArray, id];
     }
 
+    // eslint-disable-next-line max-params, sonarjs/cognitive-complexity
     parseAncestor(ancestors, testCase, parentArray, id, statusFilter) {
         const ancestorCopy = [...ancestors];
         if (ancestors.length > 0) {
@@ -120,15 +128,16 @@ class App extends Component {
             });
 
             if (elementIndex === -1) {
-                const nodeValue = {};
-                nodeValue.title = itemTitle;
-                nodeValue.numPassedTests = testCase.status === 'passed' ? 1 : 0;
-                nodeValue.numFailedTests = testCase.status === 'failed' ? 1 : 0;
-                nodeValue.numTotalTests = 1;
-                nodeValue.numPendingTests =
-                    testCase.status === 'pending' ? 1 : 0;
-                nodeValue.numTodoTests = testCase.status === 'todo' ? 1 : 0;
-                nodeValue.id = `id${id}`;
+                const nodeValue = {
+                    title: itemTitle,
+                    numPassedTests: testCase.status === 'passed' ? 1 : 0,
+                    numFailedTests: testCase.status === 'failed' ? 1 : 0,
+                    numTotalTests: 1,
+                    numPendingTests: testCase.status === 'pending' ? 1 : 0,
+                    numTodoTests: testCase.status === 'todo' ? 1 : 0,
+                    id: `id${id}`,
+                };
+
                 id++;
                 ancestorCopy.shift();
                 [nodeValue.children, id] = this.parseAncestor(
@@ -141,26 +150,34 @@ class App extends Component {
                 parentArray.push(nodeValue);
             } else {
                 ancestorCopy.shift();
+                // eslint-disable-next-line security/detect-object-injection
                 parentArray[elementIndex].numTotalTests++;
                 switch (testCase.status) {
                     case 'passed':
+                        // eslint-disable-next-line security/detect-object-injection
                         parentArray[elementIndex].numPassedTests++;
                         break;
                     case 'failed':
+                        // eslint-disable-next-line security/detect-object-injection
                         parentArray[elementIndex].numFailedTests++;
                         break;
                     case 'pending':
+                        // eslint-disable-next-line security/detect-object-injection
                         parentArray[elementIndex].numPendingTests++;
                         break;
                     case 'todo':
+                        // eslint-disable-next-line security/detect-object-injection
                         parentArray[elementIndex].numTodoTests++;
                         break;
                     default:
                         break;
                 }
+
+                // eslint-disable-next-line security/detect-object-injection
                 [parentArray[elementIndex].children, id] = this.parseAncestor(
                     ancestorCopy,
                     testCase,
+                    // eslint-disable-next-line security/detect-object-injection
                     parentArray[elementIndex].children,
                     id,
                     statusFilter,
@@ -173,6 +190,7 @@ class App extends Component {
             id++;
             parentArray.push(nodeValue);
         }
+
         return [parentArray, id];
     }
 
@@ -203,10 +221,11 @@ class App extends Component {
             });
             information.push({
                 title: 'Elapsed',
-                value: data?.endTime - data?.startTime,
+                value: data.endTime - data.startTime,
                 type: 'time',
             });
         }
+
         if (data?.openHandles && data.openHandles.length > 0) {
             information.push({
                 title: 'Open Handles',
@@ -214,6 +233,7 @@ class App extends Component {
                 type: 'number',
             });
         }
+
         information.push({
             title: 'Interupted',
             value: data?.wasInterrupted,
@@ -223,37 +243,39 @@ class App extends Component {
     }
 
     onStatusChecked = checkedStatuses => {
-        this.setState({
+        this.setState(prevState => ({
             gridData: this.formatTreeViewData(
-                this.state.testResults,
+                prevState.testResults,
                 checkedStatuses,
             ),
-        });
+        }));
     };
 
-    onExpandToggle = toggleState => {
-        this.setState({ toggleState: toggleState });
+    onExpandToggle = isResultExpanded => {
+        this.setState({ isResultExpanded: isResultExpanded });
     };
 
     render() {
         return (
             <div className="App">
                 <Header
-                    hideMenu={this.state.testResults?.reporterOptions?.hideMenu}
+                    isMenuHidden={
+                        this.state.testResults?.reporterOptions?.hideMenu
+                    }
                     heading={this.state.testResults?.reporterOptions?.title}
                     menuStateChange={this.menuStateChange}
                 />
                 <Sidebar
                     treeViewData={this.state.treeViewData}
                     menuState={this.state.menuState}
-                    onTreeNodeClick={this.onTreeNodeClick}
-                    expandMenuItems={
+                    isMenuExpanded={
                         this.state.testResults?.reporterOptions?.expandMenuItems
                     }
+                    onTreeNodeClick={this.onTreeNodeClick}
                 />
                 <Main
                     testResults={this.state.gridData}
-                    expandResults={this.state.toggleState}
+                    isResultExpanded={this.state.isResultExpanded}
                     information={this.state.information}
                     statusList={this.getStatusList()}
                     onStatusChecked={this.onStatusChecked}

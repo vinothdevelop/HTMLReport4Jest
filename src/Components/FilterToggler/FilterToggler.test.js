@@ -3,10 +3,7 @@ import FilterToggler from './FilterToggler';
 import { render, fireEvent } from '@testing-library/react';
 test('Should contain one checkbox', () => {
     const { container } = render(
-        <FilterToggler
-            statusList={['passed']}
-            onStatusChecked={function () {}}
-        ></FilterToggler>,
+        <FilterToggler statusList={['passed']} onStatusChecked={() => {}} />,
     );
     expect(container.getElementsByTagName('input').length).toEqual(1);
 });
@@ -15,8 +12,8 @@ test('Should contain two checkbox', () => {
     const { container } = render(
         <FilterToggler
             statusList={['passed', 'failed']}
-            onStatusChecked={function () {}}
-        ></FilterToggler>,
+            onStatusChecked={() => {}}
+        />,
     );
     expect(container.getElementsByTagName('input').length).toEqual(2);
 });
@@ -27,7 +24,7 @@ test('Should call function on change', () => {
         <FilterToggler
             statusList={['passed', 'failed']}
             onStatusChecked={mockCallback}
-        ></FilterToggler>,
+        />,
     );
     fireEvent.click(container.firstChild.getElementsByTagName('input')[0]);
     expect(mockCallback.mock.calls.length).toBe(1);

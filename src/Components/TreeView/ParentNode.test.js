@@ -3,17 +3,17 @@ import React from 'react';
 import ParentNode from './ParentNode';
 import { render, fireEvent, screen } from '@testing-library/react';
 describe('Expand Menu Test', () => {
-    test('Should contain expanded class when expandMenuItems is true', () => {
+    test('Should contain expanded class when isMenuExpanded is true', () => {
         const item = {
             title: 'Menu parent',
             children: [{ title: 'Menu child' }],
         };
         const { container } = render(
             <ParentNode
-                expandMenuItems={true}
+                isMenuExpanded
                 item={item}
-                onTreeNodeClick={function () {}}
-            ></ParentNode>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         expect(
             container.firstChild.firstChild.classList.contains('caret-down'),
@@ -23,17 +23,17 @@ describe('Expand Menu Test', () => {
         ).toBe(true);
     });
 
-    test('Should be collapsible when expandMenuItems is true', () => {
+    test('Should be collapsible when isMenuExpanded is true', () => {
         const item = {
             title: 'Menu parent',
             children: [{ title: 'Menu child' }],
         };
         const { container } = render(
             <ParentNode
-                expandMenuItems={true}
+                isMenuExpanded
                 item={item}
-                onTreeNodeClick={function () {}}
-            ></ParentNode>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         fireEvent.click(container.firstChild.firstChild);
         expect(
@@ -44,17 +44,17 @@ describe('Expand Menu Test', () => {
         ).toBe(false);
     });
 
-    test('Should not contain expanded class when expandMenuItems is false', () => {
+    test('Should not contain expanded class when isMenuExpanded is false', () => {
         const item = {
             title: 'Menu parent',
             children: [{ title: 'Menu child' }],
         };
         const { container } = render(
             <ParentNode
-                expandMenuItems={false}
+                isMenuExpanded={false}
                 item={item}
-                onTreeNodeClick={function () {}}
-            ></ParentNode>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         expect(
             container.firstChild.firstChild.classList.contains('caret-down'),
@@ -64,17 +64,17 @@ describe('Expand Menu Test', () => {
         ).toBe(false);
     });
 
-    test('Should not contain expanded class when expandMenuItems is undefined', () => {
+    test('Should not contain expanded class when isMenuExpanded is undefined', () => {
         const item = {
             title: 'Menu parent',
             children: [{ title: 'Menu child' }],
         };
         const { container } = render(
             <ParentNode
-                expandMenuItems={undefined}
+                isMenuExpanded={undefined}
                 item={item}
-                onTreeNodeClick={function () {}}
-            ></ParentNode>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         expect(
             container.firstChild.firstChild.classList.contains('caret-down'),
@@ -84,17 +84,17 @@ describe('Expand Menu Test', () => {
         ).toBe(false);
     });
 
-    test('Should not contain expanded class when expandMenuItems is null', () => {
+    test('Should not contain expanded class when isMenuExpanded is null', () => {
         const item = {
             title: 'Menu parent',
             children: [{ title: 'Menu child' }],
         };
         const { container } = render(
             <ParentNode
-                expandMenuItems={null}
+                isMenuExpanded={null}
                 item={item}
-                onTreeNodeClick={function () {}}
-            ></ParentNode>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         expect(
             container.firstChild.firstChild.classList.contains('caret-down'),
@@ -104,17 +104,17 @@ describe('Expand Menu Test', () => {
         ).toBe(false);
     });
 
-    test('Should be expandable when expandMenuItems is false', () => {
+    test('Should be expandable when isMenuExpanded is false', () => {
         const item = {
             title: 'Menu parent',
             children: [{ title: 'Menu child' }],
         };
         const { container } = render(
             <ParentNode
-                expandMenuItems={false}
+                isMenuExpanded={false}
                 item={item}
-                onTreeNodeClick={function () {}}
-            ></ParentNode>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         fireEvent.click(container.firstChild.firstChild);
         expect(
@@ -125,7 +125,7 @@ describe('Expand Menu Test', () => {
         ).toBe(true);
     });
 
-    test('Should be expandable when expandMenuItems is false', () => {
+    test('Should be expandable when isMenuExpanded is false', () => {
         const mockCallback = jest.fn();
         const item = {
             title: 'Menu parent',
@@ -133,10 +133,10 @@ describe('Expand Menu Test', () => {
         };
         render(
             <ParentNode
-                expandMenuItems={false}
+                isMenuExpanded={false}
                 item={item}
                 onTreeNodeClick={mockCallback}
-            ></ParentNode>,
+            />,
         );
         fireEvent.click(screen.getByText('Menu parent'));
         expect(mockCallback).toHaveBeenCalledTimes(1);
