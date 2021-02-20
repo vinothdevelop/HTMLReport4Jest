@@ -40,9 +40,10 @@
     "files": [
         "dist/index.js",
         "readme.md",
-        "dist/index.html"
+        "dist/index.html",
+        "dist/index.d.ts"
     ],
-    "types": "./dir/index.d.ts",
+    "types": "./dist/index.d.ts",
     "browserslist": {
         "production": [
             ">0.2%",
@@ -83,7 +84,7 @@
         "eslint-plugin-sonarjs": "^0.5.0",
         "eslint-webpack-plugin": "^2.4.0",
         "html-loader": "^1.1.0",
-        "html-webpack-plugin": "^5.2.0",
+        "html-webpack-plugin": "4",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.1.0",
         "prettier": "^2.0.5",
