@@ -26,8 +26,7 @@
         "url": "https://github.com/vinothdevelop/HTMLReport4Jest/issues"
     },
     "homepage": "https://vinothdevelop.github.io/HTMLReport4Jest/result.html",
-    "dependencies": {
-    },
+    "dependencies": {},
     "scripts": {
         "build:index": "yarn tsc -p .",
         "start": "webpack serve --config webpack.development.config.js",
@@ -41,9 +40,10 @@
     "files": [
         "dist/index.js",
         "readme.md",
-        "dist/index.html"
+        "dist/index.html",
+        "dist/index.d.ts"
     ],
-    "types": "./dir/index.d.ts",
+    "types": "./dist/index.d.ts",
     "browserslist": {
         "production": [
             ">0.2%",
@@ -60,9 +60,9 @@
         "@babel/core": "^7.10.4",
         "@babel/preset-env": "^7.10.4",
         "@babel/preset-react": "^7.10.4",
-        "@jest/types": "^26.3.0",
         "@jest/reporters": "^26.4.1",
         "@jest/test-result": "^26.3.0",
+        "@jest/types": "^26.3.0",
         "@testing-library/jest-dom": "^5.11.0",
         "@testing-library/react": "^11.0.0",
         "@types/node": "^14.14.9",
@@ -79,7 +79,7 @@
         "eslint-plugin-react": "^7.20.3",
         "eslint-plugin-react-hooks": "^4.0.8",
         "html-loader": "^1.1.0",
-        "html-webpack-plugin": "^5.0.0-alpha.14",
+        "html-webpack-plugin": "4",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.1.0",
         "prettier": "^2.0.5",
@@ -91,7 +91,7 @@
         "ts-loader": "^8.0.4",
         "typescript": "^4.1.2",
         "webpack": "^5.6.0",
-        "webpack-cli": "^4.2.0",
+        "webpack-cli": "^4.5.0",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.0.9"
     }
