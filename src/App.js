@@ -221,7 +221,7 @@ class App extends Component {
             });
             information.push({
                 title: 'Elapsed',
-                value: data?.endTime - data?.startTime,
+                value: data.endTime - data.startTime,
                 type: 'time',
             });
         }
