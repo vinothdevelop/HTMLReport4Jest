@@ -4,7 +4,8 @@ export default class LeafNode extends Component {
     render() {
         return <li>{this.props.item.title}</li>;
     }
+
+    static propTypes = {
+        item: PropTypes.any.isRequired,
+    };
 }
-LeafNode.propTypes = {
-    item: PropTypes.any.isRequired,
-};

@@ -25,7 +25,7 @@ module.exports = merge.merge(common, {
         headers: {
             'Cache-Control': 'max-age=0',
             get etag() {
-                return Math.random() + '';
+                return String(Math.random());
             },
         },
     },

@@ -5,6 +5,7 @@ import './FilterToggler.css';
 export default class FilterToggler extends React.Component {
     constructor(props) {
         super(props);
+        // eslint-disable-next-line react/state-in-constructor
         this.state = {
             statusList: this.init(this.props.statusList),
         };
@@ -26,13 +27,15 @@ export default class FilterToggler extends React.Component {
             if (status.value === event.target.value) {
                 status.isChecked = event.target.checked;
             }
+
             if (status.isChecked) {
                 checkStatuses.push(status.value);
             }
         });
-        this.setState(this.state.statusList);
+        this.setState(prevState => ({ statusList: prevState.statusList }));
         this.props.onStatusChecked(checkStatuses);
     };
+
     render() {
         if (this.props.statusList && this.props.statusList.length > 0) {
             return (
@@ -51,12 +54,17 @@ export default class FilterToggler extends React.Component {
                     </p>
                 </div>
             );
-        } else {
-            return null;
         }
+
+        return null;
     }
+
+    static propTypes = {
+        statusList: PropTypes.array,
+        onStatusChecked: PropTypes.func.isRequired,
+    };
+
+    static defaultProps = {
+        statusList: [],
+    };
 }
-FilterToggler.propTypes = {
-    statusList: PropTypes.array,
-    onStatusChecked: PropTypes.func.isRequired,
-};

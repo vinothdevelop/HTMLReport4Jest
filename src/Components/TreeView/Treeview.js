@@ -7,16 +7,21 @@ export default class Treeview extends Component {
         return (
             <ul className="treelist">
                 <ParentNode
-                    expandMenuItems={this.props.expandMenuItems}
+                    isMenuExpanded={this.props.isMenuExpanded}
                     item={this.props.treeViewData}
                     onTreeNodeClick={this.props.onTreeNodeClick}
                 />
             </ul>
         );
     }
+
+    static propTypes = {
+        onTreeNodeClick: PropTypes.func.isRequired,
+        treeViewData: PropTypes.any.isRequired,
+        isMenuExpanded: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        isMenuExpanded: false,
+    };
 }
-Treeview.propTypes = {
-    onTreeNodeClick: PropTypes.func.isRequired,
-    treeViewData: PropTypes.any.isRequired,
-    expandMenuItems: PropTypes.bool,
-};

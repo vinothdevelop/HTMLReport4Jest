@@ -3,18 +3,14 @@ import React from 'react';
 import TabHeading from './TabHeading';
 import { render, fireEvent } from '@testing-library/react';
 describe('Expand result tab heading test', () => {
-    test('Should be expanded when expandResults is true', () => {
+    test('Should be expanded when isResultExpanded is true', () => {
         const item = {
             title: 'Test parent',
             id: '1',
             children: [{ title: 'Test child', id: '2' }],
         };
         const { container } = render(
-            <TabHeading
-                expandResults={true}
-                item={item}
-                onShowModel={function () {}}
-            ></TabHeading>,
+            <TabHeading isResultExpanded item={item} onShowModel={() => {}} />,
         );
         expect(container.firstChild.firstChild.checked).toBe(true);
         expect(
@@ -22,24 +18,20 @@ describe('Expand result tab heading test', () => {
         ).toEqual('block');
     });
 
-    test('Should be able to toggle when expandResults is true', () => {
+    test('Should be able to toggle when isResultExpanded is true', () => {
         const item = {
             title: 'Test parent',
             id: '1',
             children: [{ title: 'Test child', id: '2' }],
         };
         const { container } = render(
-            <TabHeading
-                expandResults={true}
-                item={item}
-                onShowModel={function () {}}
-            ></TabHeading>,
+            <TabHeading isResultExpanded item={item} onShowModel={() => {}} />,
         );
         fireEvent.click(container.firstChild.firstChild);
         expect(container.firstChild.firstChild.checked).toBe(false);
     });
 
-    test('Should be collapsed when expandResults is false', () => {
+    test('Should be collapsed when isResultExpanded is false', () => {
         const item = {
             title: 'Test parent',
             id: '1',
@@ -47,15 +39,15 @@ describe('Expand result tab heading test', () => {
         };
         const { container } = render(
             <TabHeading
-                expandResults={false}
+                isResultExpanded={false}
                 item={item}
-                onShowModel={function () {}}
-            ></TabHeading>,
+                onShowModel={() => {}}
+            />,
         );
         expect(container.firstChild.firstChild.checked).toBe(false);
     });
 
-    test('Should be able to toggle when expandResults is false', () => {
+    test('Should be able to toggle when isResultExpanded is false', () => {
         const item = {
             title: 'Test parent',
             id: '1',
@@ -63,16 +55,16 @@ describe('Expand result tab heading test', () => {
         };
         const { container } = render(
             <TabHeading
-                expandResults={false}
+                isResultExpanded={false}
                 item={item}
-                onShowModel={function () {}}
-            ></TabHeading>,
+                onShowModel={() => {}}
+            />,
         );
         fireEvent.click(container.firstChild.firstChild);
         expect(container.firstChild.firstChild.checked).toBe(true);
     });
 
-    test('Should be collapsed when expandResults is null', () => {
+    test('Should be collapsed when isResultExpanded is null', () => {
         const item = {
             title: 'Test parent',
             id: '1',
@@ -80,15 +72,15 @@ describe('Expand result tab heading test', () => {
         };
         const { container } = render(
             <TabHeading
-                expandResults={null}
+                isResultExpanded={null}
                 item={item}
-                onShowModel={function () {}}
-            ></TabHeading>,
+                onShowModel={() => {}}
+            />,
         );
         expect(container.firstChild.firstChild.checked).toBe(false);
     });
 
-    test('Should be collapsed when expandResults is undefined', () => {
+    test('Should be collapsed when isResultExpanded is undefined', () => {
         const item = {
             title: 'Test parent',
             id: '1',
@@ -96,10 +88,10 @@ describe('Expand result tab heading test', () => {
         };
         const { container } = render(
             <TabHeading
-                expandResults={undefined}
+                isResultExpanded={undefined}
                 item={item}
-                onShowModel={function () {}}
-            ></TabHeading>,
+                onShowModel={() => {}}
+            />,
         );
         expect(container.firstChild.firstChild.checked).toBe(false);
     });

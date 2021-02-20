@@ -6,9 +6,9 @@ describe('Toggle button dom', () => {
         const { container } = render(
             <ToggleButton
                 checkedText="Expand"
-                onToggle={function () {}}
                 toggleState={false}
-            ></ToggleButton>,
+                onToggle={() => {}}
+            />,
         );
         expect(container.querySelector('label')).toHaveTextContent('Expand');
         expect(container.querySelector('input')).not.toBeChecked();
@@ -19,9 +19,9 @@ describe('Toggle button fire event', () => {
         const { container } = render(
             <ToggleButton
                 checkedText="Expand"
-                onToggle={function () {}}
                 toggleState={false}
-            ></ToggleButton>,
+                onToggle={() => {}}
+            />,
         );
         fireEvent.click(container.querySelector('input'));
         expect(container.querySelector('input')).toBeChecked();
@@ -34,9 +34,9 @@ describe('Toggle button fire event', () => {
         const { container } = render(
             <ToggleButton
                 checkedText="Expand"
-                onToggle={mockCallback}
                 toggleState={false}
-            ></ToggleButton>,
+                onToggle={mockCallback}
+            />,
         );
         fireEvent.click(container.querySelector('input'));
         expect(mockCallback).toBeCalledTimes(1);

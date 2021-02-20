@@ -9,17 +9,22 @@ export default class Sidebar extends Component {
         return (
             <div className={`sidenav ${this.props.menuState}`}>
                 <Treeview
-                    expandMenuItems={this.props.expandMenuItems}
+                    isMenuExpanded={this.props.isMenuExpanded}
                     treeViewData={this.props.treeViewData}
                     onTreeNodeClick={this.props.onTreeNodeClick}
                 />
             </div>
         );
     }
+
+    static propTypes = {
+        onTreeNodeClick: PropTypes.func.isRequired,
+        treeViewData: PropTypes.any.isRequired,
+        menuState: PropTypes.string.isRequired,
+        isMenuExpanded: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        isMenuExpanded: false,
+    };
 }
-Sidebar.propTypes = {
-    onTreeNodeClick: PropTypes.func.isRequired,
-    treeViewData: PropTypes.any.isRequired,
-    menuState: PropTypes.string.isRequired,
-    expandMenuItems: PropTypes.bool,
-};

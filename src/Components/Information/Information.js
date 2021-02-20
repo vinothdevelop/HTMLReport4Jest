@@ -7,23 +7,32 @@ export default class Information extends React.Component {
         if (item?.type) {
             if (item.type === 'date' && item?.value) {
                 return new DateUtilities().formatDate(item.value);
-            } else if (item.type === 'datetime' && item?.value) {
+            }
+
+            if (item.type === 'datetime' && item?.value) {
                 return new DateUtilities().formatDateTime(item.value);
-            } else if (item.type === 'boolean' && item?.value) {
+            }
+
+            if (item.type === 'boolean' && item?.value) {
                 return 'Yes';
-            } else if (item.type === 'boolean' && !item?.value) {
+            }
+
+            if (item.type === 'boolean' && !item?.value) {
                 return 'No';
-            } else if (item.type === 'time') {
+            }
+
+            if (item.type === 'time') {
                 return new DateUtilities().convertMillisecondsToTime(
                     item.value,
                 );
-            } else {
-                return item?.value;
             }
-        } else {
+
             return item?.value;
         }
+
+        return item?.value;
     }
+
     render() {
         return (
             <div className="infoWrapper">
@@ -41,7 +50,8 @@ export default class Information extends React.Component {
             </div>
         );
     }
+
+    static propTypes = {
+        info: PropTypes.array.isRequired,
+    };
 }
-Information.propTypes = {
-    info: PropTypes.array.isRequired,
-};

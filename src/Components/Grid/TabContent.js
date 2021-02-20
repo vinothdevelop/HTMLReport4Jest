@@ -9,6 +9,7 @@ class TabContent extends Component {
     formatTime(value) {
         return new DateUtilities().convertMillisecondsToTime(value);
     }
+
     render() {
         const hasChildren =
             this.props.item.children && this.props.item.children.length > 0;
@@ -16,15 +17,15 @@ class TabContent extends Component {
         if (hasChildren) {
             content = (
                 <TabHeading
-                    expandResults={this.props.expandResults}
+                    key={`${this.props.item.id}${this.props.isResultExpanded}`}
+                    isResultExpanded={this.props.isResultExpanded}
                     item={this.props.item}
                     onShowModel={this.props.onShowModel}
-                    key={`${this.props.item.id}${this.props.expandResults}`}
                 />
             );
         } else {
             content = (
-                <Fragment>
+                <>
                     <div className="column testcase">
                         {this.props.item.title}
                     </div>
@@ -51,21 +52,28 @@ class TabContent extends Component {
                                     fill="currentColor"
                                     className="informationicon"
                                 >
-                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"></path>
+                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z" />
                                 </svg>
                             </i>{' '}
                             Info
                         </div>
                     </div>
-                </Fragment>
+                </>
             );
         }
-        return <Fragment>{content}</Fragment>;
+
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        return <>{content}</>;
     }
+
+    static propTypes = {
+        item: PropTypes.any.isRequired,
+        onShowModel: PropTypes.func.isRequired,
+        isResultExpanded: PropTypes.any,
+    };
+
+    static defaultProps = {
+        isResultExpanded: null,
+    };
 }
-TabContent.propTypes = {
-    item: PropTypes.any.isRequired,
-    onShowModel: PropTypes.func.isRequired,
-    expandResults: PropTypes.any,
-};
 export default TabContent;

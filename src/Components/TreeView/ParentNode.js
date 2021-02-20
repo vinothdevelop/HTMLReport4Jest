@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 export default class ParentNode extends Component {
     constructor(props) {
         super(props);
+        // eslint-disable-next-line react/state-in-constructor
         this.state = {
-            item: this.props.item,
+            // eslint-disable-next-line react/no-unused-state
+            item: props.item,
         };
     }
+
     onTreeCaretClick(e) {
         e.target.parentElement
             .querySelector('.nested')
@@ -16,11 +19,11 @@ export default class ParentNode extends Component {
     }
 
     getCaretClassName() {
-        return this.props.expandMenuItems ? 'caret-down' : '';
+        return this.props.isMenuExpanded ? 'caret-down' : '';
     }
 
     getNestedClassName() {
-        return this.props.expandMenuItems ? 'active' : '';
+        return this.props.isMenuExpanded ? 'active' : '';
     }
 
     render() {
@@ -31,7 +34,7 @@ export default class ParentNode extends Component {
                     onClick={event => {
                         return this.onTreeCaretClick(event);
                     }}
-                ></span>
+                />
                 <span
                     className="nodeTitle"
                     onClick={() => {
@@ -42,7 +45,7 @@ export default class ParentNode extends Component {
                 </span>
                 <ul className={`nested ${this.getNestedClassName()}`}>
                     <Treenode
-                        expandMenuItems={this.props.expandMenuItems}
+                        isMenuExpanded={this.props.isMenuExpanded}
                         treeViewData={this.props.item.children}
                         onTreeNodeClick={this.props.onTreeNodeClick}
                     />
@@ -50,9 +53,14 @@ export default class ParentNode extends Component {
             </li>
         );
     }
+
+    static propTypes = {
+        onTreeNodeClick: PropTypes.func.isRequired,
+        item: PropTypes.any.isRequired,
+        isMenuExpanded: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        isMenuExpanded: false,
+    };
 }
-ParentNode.propTypes = {
-    onTreeNodeClick: PropTypes.func.isRequired,
-    item: PropTypes.any.isRequired,
-    expandMenuItems: PropTypes.bool,
-};

@@ -6,7 +6,7 @@ const sampleData = require('./data/sample.json');
 describe('Page Information', () => {
     test('Should contain minimal information', () => {
         window.resultData = data;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         expect(
             container.querySelector('.infoWrapper').childNodes.length,
         ).toEqual(4);
@@ -18,7 +18,7 @@ describe('Page Information', () => {
         };
         infoData.reporterOptions = reporterOptions;
         window.resultData = infoData;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         expect(
             container.querySelector('.infoWrapper').childNodes.length,
         ).toEqual(6);
@@ -26,7 +26,7 @@ describe('Page Information', () => {
     test('Should contain project level information', () => {
         const infoData = { ...sampleData };
         window.resultData = infoData;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         expect(
             container.querySelector('.infoWrapper').childNodes.length,
         ).toEqual(8);
@@ -35,7 +35,7 @@ describe('Page Information', () => {
         const infoData = { ...sampleData };
         infoData.openHandles = ['handle'];
         window.resultData = infoData;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         expect(
             container.querySelector('.infoWrapper').childNodes.length,
         ).toEqual(10);
@@ -45,7 +45,7 @@ describe('Page Information', () => {
 describe('Menu click', () => {
     test('Should show and hide tree on click', () => {
         window.resultData = data;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         fireEvent.click(container.querySelector('#menu'));
         expect(
             container.querySelector('.sidenav').classList.contains('open'),
@@ -60,7 +60,7 @@ describe('Menu click', () => {
 describe('Tree click', () => {
     test('Should call function on tree node click', () => {
         window.resultData = data;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         const date = container.querySelector('.box2');
         date.textContent = '';
         fireEvent.click(container.querySelector('#menu'));
@@ -79,12 +79,12 @@ describe('Tree click', () => {
 describe('Status filter', () => {
     test('Should have checkboxes', () => {
         window.resultData = sampleData;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         expect(container.querySelectorAll('.checkboxLabel').length).toEqual(4);
     });
     test('Should filter on checkbox click', () => {
         window.resultData = sampleData;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         const statusCheckboxes = container.querySelectorAll('.checkboxLabel');
         fireEvent.click(statusCheckboxes[3]);
         expect(container.querySelectorAll('.tab-content').length).toEqual(2);
@@ -95,11 +95,22 @@ describe('Status filter', () => {
 describe('Toggle Button', () => {
     test('Should fire event', () => {
         window.resultData = data;
-        const { container } = render(<App></App>);
+        const { container } = render(<App />);
         expect(
             container.querySelectorAll('.togglerCheckBox:checked'),
         ).toHaveLength(0);
         fireEvent.click(container.querySelector('#toggleButton'));
+        expect(
+            container.querySelectorAll('.togglerCheckBox:checked'),
+        ).toHaveLength(12);
+    });
+
+    test('Should use default expand results flag', () => {
+        const copiedData = JSON.parse(JSON.stringify(data));
+        copiedData.reporterOptions = {};
+        copiedData.reporterOptions.expandResults = true;
+        window.resultData = copiedData;
+        const { container } = render(<App />);
         expect(
             container.querySelectorAll('.togglerCheckBox:checked'),
         ).toHaveLength(12);

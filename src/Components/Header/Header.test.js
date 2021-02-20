@@ -5,10 +5,7 @@ import { render, fireEvent } from '@testing-library/react';
 describe('Header title test', () => {
     test('Should contain text sent', () => {
         const { container } = render(
-            <Header
-                heading="Test Heading"
-                menuStateChange={function () {}}
-            ></Header>,
+            <Header heading="Test Heading" menuStateChange={() => {}} />,
         );
         expect(container.firstChild.lastChild.textContent).toEqual(
             'Test Heading',
@@ -17,10 +14,7 @@ describe('Header title test', () => {
 
     test('Should contain default text if set to undefined', () => {
         const { container } = render(
-            <Header
-                heading={undefined}
-                menuStateChange={function () {}}
-            ></Header>,
+            <Header heading={undefined} menuStateChange={() => {}} />,
         );
         expect(container.firstChild.lastChild.textContent).toEqual(
             'Execution Report',
@@ -29,7 +23,7 @@ describe('Header title test', () => {
 
     test('Should contain default text if set to null', () => {
         const { container } = render(
-            <Header heading={null} menuStateChange={function () {}}></Header>,
+            <Header heading={null} menuStateChange={() => {}} />,
         );
         expect(container.firstChild.lastChild.textContent).toEqual(
             'Execution Report',
@@ -40,38 +34,30 @@ describe('Header title test', () => {
 describe('Header menu test', () => {
     test('Should hide menu', () => {
         const { container } = render(
-            <Header
-                hideMenu={true}
-                heading={null}
-                menuStateChange={function () {}}
-            ></Header>,
+            <Header isMenuHidden heading={null} menuStateChange={() => {}} />,
         );
         expect(container.getElementsByClassName('menu').length).toEqual(0);
     });
     test('Should not hide menu', () => {
         const { container } = render(
             <Header
-                hideMenu={false}
+                isMenuHidden={false}
                 heading={null}
-                menuStateChange={function () {}}
-            ></Header>,
+                menuStateChange={() => {}}
+            />,
         );
         expect(container.getElementsByClassName('menu').length).toEqual(1);
     });
     test('Should not hide menu on null', () => {
         const { container } = render(
-            <Header heading={null} menuStateChange={function () {}}></Header>,
+            <Header heading={null} menuStateChange={() => {}} />,
         );
         expect(container.getElementsByClassName('menu').length).toEqual(1);
     });
 
     test('Should hide menu should match snapshot', () => {
         const { container } = render(
-            <Header
-                hideMenu={true}
-                heading={null}
-                menuStateChange={function () {}}
-            ></Header>,
+            <Header isMenuHidden heading={null} menuStateChange={() => {}} />,
         );
         expect(container).toMatchSnapshot();
     });
@@ -79,10 +65,7 @@ describe('Header menu test', () => {
 
 test('Should match snapshot', () => {
     const { container } = render(
-        <Header
-            heading="Test Heading"
-            menuStateChange={function () {}}
-        ></Header>,
+        <Header heading="Test Heading" menuStateChange={() => {}} />,
     );
     expect(container.firstChild).toMatchSnapshot();
 });
@@ -90,7 +73,7 @@ test('Should match snapshot', () => {
 test('Should fire event on click', () => {
     const FakeFun = jest.fn();
     const { container } = render(
-        <Header heading="Test Heading" menuStateChange={FakeFun}></Header>,
+        <Header heading="Test Heading" menuStateChange={FakeFun} />,
     );
     fireEvent.click(container.firstChild.firstChild);
     fireEvent.click(container.firstChild.firstChild);

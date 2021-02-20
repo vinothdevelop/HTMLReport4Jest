@@ -22,8 +22,10 @@ export default class DateUtilities {
                 return `${milliSeconds} ms`;
             }
         }
+
         return '';
     }
+
     formatDate(date) {
         if (date) {
             date = new Date(date);

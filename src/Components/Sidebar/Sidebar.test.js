@@ -11,11 +11,11 @@ describe('Sidebar state test', () => {
         };
         const { container } = render(
             <Sidebar
-                menuState={'open'}
+                isMenuExpanded
+                menuState="open"
                 treeViewData={item}
-                onTreeNodeClick={function () {}}
-                expandMenuItems={true}
-            ></Sidebar>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         expect(container.firstChild.classList.contains('open')).toBe(true);
     });
@@ -27,11 +27,11 @@ describe('Sidebar state test', () => {
         };
         const { container } = render(
             <Sidebar
-                menuState={'close'}
+                isMenuExpanded
+                menuState="close"
                 treeViewData={item}
-                onTreeNodeClick={function () {}}
-                expandMenuItems={true}
-            ></Sidebar>,
+                onTreeNodeClick={() => {}}
+            />,
         );
         expect(container.firstChild.classList.contains('close')).toBe(true);
     });

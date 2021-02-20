@@ -7,16 +7,17 @@ export const CheckBox = props => {
             {props.value}
             <input
                 key={props.value}
-                onChange={props.handleCheck}
                 type="checkbox"
                 checked={props.isChecked}
                 value={props.value}
                 id={props.value}
+                onChange={props.handleCheck}
             />
-            <span className="checkboxSpan"></span>
+            <span className="checkboxSpan" />
         </label>
     );
 };
+
 CheckBox.propTypes = {
     handleCheck: PropTypes.func.isRequired,
     isChecked: PropTypes.bool,
