@@ -14,7 +14,7 @@ jobs:
             - uses: actions/setup-node@v2.1.4
               with:
                   node-version: ${{ matrix.node }}
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v2.3.4
             - run: yarn install
             - run: yarn lint
             - run: yarn build
@@ -26,7 +26,7 @@ jobs:
             - uses: actions/setup-node@v2.1.4
               with:
                   node-version: 12
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v2.3.4
             - run: yarn install
             - run: yarn build
             - run: npx semantic-release
@@ -37,7 +37,7 @@ jobs:
         runs-on: ubuntu-18.04
         needs: release
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v2.3.4
             - name: Setup Node
               uses: actions/setup-node@v2.1.4
               with:
